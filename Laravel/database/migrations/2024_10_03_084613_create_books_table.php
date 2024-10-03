@@ -10,12 +10,15 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
+    {   
         Schema::create('books', function (Blueprint $table) {
-            $table->id();
-            $table->string('Publisher');
+            $table->foreignId('userid')->constrained()->onDelete('cascade');
             $table->string('Author');
+            $table->string(column: 'Publisher');
+            $table->string('Description');
             $table->string('Bookcover');
+            $table->string('Category');
+            $table->string('Location');
             $table->boolean('Status');
             $table->timestamps();
         });

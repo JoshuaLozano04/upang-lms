@@ -23,16 +23,5 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
             });
-
-        btnSignout = findViewById(R.id.btnSignout);
-
-        btnSignout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Login.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-    }
+ }
 }

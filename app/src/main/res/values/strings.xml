@@ -41,4 +41,32 @@
     <string name="toc_12">
         12. <b>Contact Information</b>\nFor any questions about these Terms and Conditions or the services we provide, please contact us at:\n\n<b>email</b>: <U>lmsgroup2@gmail.com</U>\n\n<b>phone number</b>: 09476435821\n\nBy creating an account or using the LMS, you acknowledge that you have read, understood, and agreed to these Terms and Conditions.
     </string>
+    <string name="log_in">log_in\n</string>
+    <string name="log_into_your_account">Log Into Your Account</string>
+    <string name="or_create_a_new_account">Or create a new account</string>
+    <string name="password">Password</string>
+    <string name="email_address">Email Address</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="login">Login</string>
+    <string name="logo">LOGO</string>
+    <string name="extrahud">extrahud</string>
+    <string name="meet_lms">Meet LMS,</string>
+    <string name="the_library">the Library</string>
+    <string name="management">Management</string>
+    <string name="system">System.</string>
+    <string name="get_started">Get Started</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="already_have_an_account_log_in">Already have an account? Log in.</string>
+    <string name="backbtn">backBtn</string>
+    <string name="recommended">Recommended</string>
+    <string name="search_for_category">Search for Category</string>
+    <string name="to_lms">To LMS</string>
+    <string name="continue">Continue</string>
+    <string name="library_management_system_lms_is_designed_to_help_you_find_the_book_much_easier">Library Management System (LMS) is designed to help you find the book much easier.</string>
+    <string name="welcome">Welcome</string>
+    <string name="continue1">Continue</string>
 </resources>

@@ -35,59 +35,5 @@ public class Login extends AppCompatActivity {
             return insets;
         });
 
-        btnlogin = findViewById(R.id.btnLogin);
-        EditTextEtEmail = findViewById(R.id.EtEmail);
-        EditTextEtPassword = findViewById(R.id.EtPass);
-        tvlabel = findViewById(R.id.textView);
-
-        btnlogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email, password;
-                email = EditTextEtEmail.getText().toString();
-                password = EditTextEtPassword.getText().toString();
-
-                if(!email.equals("") && !password.equals("")){
-                    Handler handler = new Handler(Looper.getMainLooper());
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            String[] field = new String[2];
-                            field[0] = "email";
-                            field[1] = "password";
-                            String[] data = new String[2];
-                            data[0] = email;
-                            data[1] = password;
-                            PutData putData = new PutData("http://192.168.77.16/loginregister/login.php", "POST", field, data);
-                            if (putData.startPut()) {
-                                if (putData.onComplete()) {
-                                    String result = putData.getResult();
-                                    if(result.equals("Login Success")){
-                                        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                                        startActivity(intent);
-                                        finish();
-                                    }
-                                    else {
-                                        Toast.makeText(getApplicationContext(),result, Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            }
-
-                        }
-                    });
-                } else {
-                    Toast.makeText(getApplicationContext(),"All Fields Required", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-        tvlabel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),SignUp.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
     }
 }

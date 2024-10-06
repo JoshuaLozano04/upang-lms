@@ -67,7 +67,7 @@
         android:layout_width="259dp"
         android:layout_height="144dp"
         android:layout_marginTop="30dp"
-        android:contentDescription="@string/logo"
+        android:contentDescription="Logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +80,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/open_sans"
-        android:text="@string/search_for_category"
+        android:text="Search For Catergory"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.20"
@@ -101,17 +101,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvLabel" />
 
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="20dp"
-        android:text="@string/recommended"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="290dp"
-        android:fontFamily="@font/open_sans"
+    <ScrollView
+        android:layout_width="416dp"
+        android:layout_height="446dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
 
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

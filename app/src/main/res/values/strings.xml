@@ -120,4 +120,10 @@
     <string name="AbtLms">
 
     </string>
+    <string name="change_password">Change Password</string>
+    <string name="backbtn">BackBtn</string>
+    <string name="your_password_must_be_at_least_8_characters_and_should_include_a_combination_of_numbers_letters_and_special_characters">Your password must be at least 8 characters and should include a combination of numbers, letters, and special characters (!@$%).</string>
+    <string name="current_password">Current password</string>
+    <string name="new_password">New password</string>
+    <string name="re_type_new_password">Re-type new password</string>
 </resources>

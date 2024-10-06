@@ -118,7 +118,20 @@
     //About LMS
 
     <string name="AbtLms">
+        Welcome to our Library Management System (LMS), designed to enhance your reading experience through a range of innovative features. Our unique QR code generation allows registered members to log in effortlessly, while a beep sound prompts you when your QR code is scanned. The LMS also simplifies the book lending process, provides an efficient book inventory and locator, and includes an intuitive search bar for easy navigation.
 
+        \n\nOur objectives focus on management, convenience, and organization. We efficiently manage and store book information in a centralized database, making it easier for library staff to locate and organize books and bookshelves. With unique QR code registration, users no longer need to worry about misplaced cards, as access is seamless. Furthermore, our system simplifies inventory monitoring by tracking which books are lent out and who borrowed them, turning book lending into a hassle-free experience.
+
+        \n\nCreators:
+        \nBruce Nifas
+        \nCharwien Vila
+        \nJoshua Lozano
+        \nJulianne Celes E. Fran
+        \nKyran Gabriel E. Josafat
+        \nMatthew Estrada
+        \nMark Luis Delos Santos
+        \nRalph Mamaril
+        \nRio C. Burguillos
     </string>
     <string name="change_password">Change Password</string>
     <string name="backbtn">BackBtn</string>

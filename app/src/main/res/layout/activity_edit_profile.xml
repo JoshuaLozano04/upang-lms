@@ -25,12 +25,12 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="161dp"
+            android:layout_width="133dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="Edit Profile"
             android:textColor="@color/white"
-            android:textSize="30dp"
+            android:textSize="25dp"
             tools:layout_editor_absoluteX="125dp"
             tools:layout_editor_absoluteY="38dp" />
 

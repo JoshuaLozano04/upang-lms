@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChangePassword">
+    tools:context=".UpdateEmail">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Change Password"
+            android:text="Update Email address"
             android:textColor="@color/white"
             android:textSize="25dp"
             tools:layout_editor_absoluteX="125dp"
@@ -36,54 +36,27 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView4"
+    <EditText
+        android:id="@+id/editText"
         android:layout_width="350dp"
-        android:layout_height="105dp"
-        android:layout_marginTop="64dp"
-        android:textColor="@color/black"
-        android:text="Your password must be at least 8 characters and should include a combination of numbers, letters, and special characters (!@$%)."
-        android:textSize="20dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/edit_text_border"
+        android:hint="Current email"
+        android:padding="10dp"
+        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="44dp"
-        android:background="@drawable/edit_text_border"
-        android:hint="Current password"
-        android:padding="10dp"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/edit_text_border"
-        android:hint="New password"
-        android:padding="10dp"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
-
-    <EditText
         android:id="@+id/editText3"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/edit_text_border"
-        android:hint="Re-type new password"
+        android:hint="Confirm new email"
         android:padding="10dp"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,17 +64,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text_border"
+        android:hint="Password"
+        android:padding="10dp"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/edit_text_border"
+        android:hint="New email"
+        android:padding="10dp"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
+
     <Button
         android:id="@+id/button"
         android:layout_width="241dp"
         android:layout_height="51dp"
-        android:layout_marginTop="76dp"
         android:backgroundTint="#137A63"
-        android:text="Change password"
+        android:text="Change email"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3"
-        app:layout_constraintVertical_bias="0.406" />
+        app:layout_constraintTop_toBottomOf="@+id/editText4"
+        app:layout_constraintVertical_bias="0.644" />
 </androidx.constraintlayout.widget.ConstraintLayout>

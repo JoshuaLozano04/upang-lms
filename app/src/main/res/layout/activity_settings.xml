@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -41,26 +42,30 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="55dp"
+        android:layout_width="75dp"
         android:layout_height="27dp"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/assistant_extrabold"
         android:text="General"
-        android:textSize="15sp"
-        app:layout_constraintHorizontal_bias="0.1"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="90dp"
-        android:layout_height="27dp"
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
         android:text="Edit Profile"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/divider1"
+        android:background="null"
+        android:fontFamily="@font/assistant"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/divider1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -70,22 +75,25 @@
         android:layout_height="2dp"
         android:background="@drawable/divider"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="120dp"
-        android:layout_height="27dp"
-        android:text="Change Password"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@id/btnEdit"
+        app:layout_constraintBottom_toTopOf="@id/btnChangePass"/>
 
+    <Button
+        android:id="@+id/btnChangePass"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="Change Password"
+        android:background="null"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:fontFamily="@font/assistant"
+        app:layout_constraintBottom_toTopOf="@id/divider1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider1" />
 
     <LinearLayout
         android:id="@+id/divider2"
@@ -95,7 +103,44 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        android:layout_marginBottom=""/>
+        app:layout_constraintTop_toBottomOf="@id/btnChangePass"/>
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="Update Email Address"
+        android:textSize="15sp"
+        android:background="null"
+        android:textColor="@color/black"
+        android:fontFamily="@font/assistant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <LinearLayout
+        android:id="@+id/divider3"
+        android:layout_width="410dp"
+        android:layout_height="2dp"
+        android:background="@drawable/divider"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnUpdate"/>
+
+    <TextView
+        android:id="@+id/Others"
+        android:layout_width="100dp"
+        android:layout_height="27dp"
+        android:fontFamily="@font/assistant_extrabold"
+        android:text="Others"
+        android:textSize="20sp"
+        android:layout_marginTop="90dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider3" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

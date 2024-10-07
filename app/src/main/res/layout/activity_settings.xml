@@ -109,13 +109,13 @@
         android:id="@+id/btnUpdate"
         android:layout_width="120dp"
         android:layout_height="40dp"
-        android:text="Update Email Address"
-        android:textSize="15sp"
         android:background="null"
-        android:textColor="@color/black"
         android:fontFamily="@font/assistant"
+        android:text="Update Email Address"
+        android:textColor="@color/black"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
@@ -131,15 +131,30 @@
 
     <TextView
         android:id="@+id/Others"
-        android:layout_width="100dp"
+        android:layout_width="75dp"
         android:layout_height="27dp"
+        android:layout_marginTop="88dp"
         android:fontFamily="@font/assistant_extrabold"
         android:text="Others"
         android:textSize="20sp"
-        android:layout_marginTop="90dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider3"/>
+
+    <Button
+        android:id="@+id/terms"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:background="null"
+        android:fontFamily="@font/assistant"
+        android:text="Terms and Conditions"
+        android:textColor="@color/black"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider3" />
+        app:layout_constraintTop_toBottomOf="@+id/Others" />
+
 
 
 

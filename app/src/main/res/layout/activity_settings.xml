@@ -10,218 +10,226 @@
         android:layout_width="411dp"
         android:layout_height="93dp"
         android:background="@drawable/rectangle"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:fontFamily="@font/open_sans"
-        android:text="@string/settings"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:contentDescription="@string/backbtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+            app:layout_constraintEnd_toStartOf="@+id/textView1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:background="@drawable/arrow"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
-        app:layout_constraintEnd_toStartOf="@+id/textView1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/textView1"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:fontFamily="@font/open_sans"
+            android:text="@string/settings"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="75dp"
-        android:layout_height="27dp"
-        android:layout_marginTop="50dp"
-        android:fontFamily="@font/assistant_extrabold"
-        android:text="General"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <Button
-        android:id="@+id/btnEdit"
-        android:layout_width="190dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="null"
-        android:fontFamily="@font/assistant"
-        android:text="Edit Profile"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:gravity="left"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.004"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <LinearLayout
-        android:id="@+id/divider1"
-        android:layout_width="410dp"
-        android:layout_height="2dp"
-        android:background="@drawable/divider"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnEdit" />
-
-    <Button
-        android:id="@+id/btnChangePass"
-        android:layout_width="190dp"
-        android:layout_height="40dp"
-        android:background="null"
-        android:fontFamily="@font/assistant"
-        android:text="Change Password"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:gravity="left"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.004"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider1" />
-
-    <LinearLayout
-        android:id="@+id/divider2"
-        android:layout_width="410dp"
-        android:layout_height="2dp"
-        android:background="@drawable/divider"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnChangePass" />
-
-    <Button
-        android:id="@+id/btnUpdate"
-        android:layout_width="190dp"
-        android:layout_height="40dp"
-        android:background="null"
-        android:fontFamily="@font/assistant"
-        android:text="Update Email Address"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:gravity="left"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.004"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider2" />
-
-    <LinearLayout
-        android:id="@+id/divider3"
-        android:layout_width="410dp"
-        android:layout_height="2dp"
-        android:background="@drawable/divider"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnUpdate" />
-
-    <TextView
-        android:id="@+id/Others"
-        android:layout_width="75dp"
-        android:layout_height="27dp"
-        android:layout_marginTop="88dp"
-        android:fontFamily="@font/assistant_extrabold"
-        android:text="Others"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider3" />
-
-    <Button
-        android:id="@+id/terms"
-        android:layout_width="190dp"
-        android:layout_height="40dp"
-        android:background="null"
-        android:fontFamily="@font/assistant"
-        android:text="Terms and Conditions"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:gravity="left"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Others" />
-
-    <LinearLayout
-        android:id="@+id/divider4"
-        android:layout_width="410dp"
-        android:layout_height="2dp"
-        android:background="@drawable/divider"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/terms" />
-
-    <Button
-        android:id="@+id/privacy"
-        android:layout_width="190dp"
-        android:layout_height="40dp"
-        android:background="null"
-        android:fontFamily="@font/assistant"
-        android:text="Privacy Policy"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:gravity="left"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="409dp"
-        android:layout_height="2dp"
-        android:background="@drawable/divider"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privacy" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="190dp"
-        android:layout_height="40dp"
-
-        android:layout_marginTop="4dp"
-        android:background="null"
-        android:fontFamily="@font/assistant"
-        android:text="Log Out"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:gravity="left"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privacy" />
-
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="2dp"
-        android:layout_marginBottom="170dp"
-        android:background="@drawable/divider"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="75dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/assistant_extrabold"
+            android:text="General"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background=""
+            android:fontFamily="@font/assistant"
+            android:gravity="left"
+            android:text="Edit Profile"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.004"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <LinearLayout
+            android:id="@+id/divider1"
+            android:layout_width="410dp"
+            android:layout_height="2dp"
+            android:background="@drawable/divider"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnEdit" />
+
+        <Button
+            android:id="@+id/btnChangePass"
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:background="null"
+            android:gravity="left"
+            android:fontFamily="@font/assistant"
+            android:text="Change Password"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.004"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider1" />
+
+        <LinearLayout
+            android:id="@+id/divider2"
+            android:layout_width="410dp"
+            android:layout_height="2dp"
+            android:background="@drawable/divider"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnChangePass" />
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:background="null"
+            android:fontFamily="@font/assistant"
+            android:text="Update Email Address"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.004"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+        <LinearLayout
+            android:layout_width="410dp"
+            android:layout_height="2dp"
+            android:background="@drawable/divider"
+            android:orientation="horizontal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <TextView
+            android:id="@+id/Others"
+            android:layout_width="75dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="88dp"
+            android:fontFamily="@font/assistant_extrabold"
+            android:text="Others"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/terms"
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:background="null"
+            android:gravity="left"
+            android:fontFamily="@font/assistant"
+            android:text="Terms and Conditions"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Others" />
+
+        <LinearLayout
+            android:layout_width="410dp"
+            android:layout_height="2dp"
+            android:background="@drawable/divider"
+            android:orientation="horizontal" />
+
+        <Button
+            android:id="@+id/privacy"
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:background="null"
+            android:gravity="left"
+            android:fontFamily="@font/assistant"
+            android:text="Privacy Policy"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider4" />
+        <LinearLayout
+            android:id="@+id/divider4"
+            android:layout_width="410dp"
+            android:layout_height="2dp"
+            android:background="@drawable/divider"
+            android:orientation="horizontal"/>
+        <Button
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:background="null"
+            android:gravity="left"
+            android:fontFamily="@font/assistant"
+            android:text="About us"
+            android:textColor="@color/black"
+            android:textSize="15sp"/>
+        <LinearLayout
+            android:layout_width="410dp"
+            android:layout_height="2dp"
+            android:background="@drawable/divider"
+            android:orientation="horizontal"/>
+        <Button
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:background="null"
+            android:gravity="left"
+            android:fontFamily="@font/assistant"
+            android:text="Log out"
+            android:textColor="@color/black"
+            android:textSize="15sp"/>
+
+        <LinearLayout
+            android:layout_width="410dp"
+            android:layout_height="2dp"
+            android:background="@drawable/divider"
+            android:orientation="horizontal"/>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

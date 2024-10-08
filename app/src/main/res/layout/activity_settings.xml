@@ -15,6 +15,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
+<<<<<<< Updated upstream
+=======
+
+    </LinearLayout>
+>>>>>>> Stashed changes
 
         <ImageButton
             android:id="@+id/imageButton"
@@ -48,12 +53,71 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
+<<<<<<< Updated upstream
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+=======
+        android:layout_width="409dp"
+        android:layout_height="2dp"
+        android:background="@drawable/divider"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/privacy" />
+
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:background="null"
+        android:fontFamily="@font/assistant"
+        android:gravity="left"
+        android:text="About Us"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/privacy" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:background="null"
+        android:fontFamily="@font/assistant"
+        android:gravity="left"
+        android:text="Log Out"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="409dp"
+        android:layout_height="2dp"
+        android:background="@drawable/divider"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button1" />
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="2dp"
+        android:layout_marginBottom="130"
+        android:background="@drawable/divider"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+>>>>>>> Stashed changes
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+<<<<<<< Updated upstream
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <TextView
@@ -230,6 +294,9 @@
             android:background="@drawable/divider"
             android:orientation="horizontal"/>
     </LinearLayout>
+=======
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+>>>>>>> Stashed changes
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

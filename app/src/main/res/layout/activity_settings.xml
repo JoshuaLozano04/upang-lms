@@ -32,6 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
+        android:id="@+id/imageButton"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:background="@drawable/arrow"
@@ -55,17 +56,16 @@
 
     <Button
         android:id="@+id/btnEdit"
-        android:layout_width="120dp"
+        android:layout_width="190dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
-        android:text="Edit Profile"
-        android:textSize="15sp"
-        android:background="null"
+        android:background=""
         android:fontFamily="@font/assistant"
+        android:text="Edit Profile"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@id/divider1"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintHorizontal_bias="0.004"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -77,21 +77,19 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnEdit"
-        app:layout_constraintBottom_toTopOf="@id/btnChangePass"/>
+        app:layout_constraintTop_toBottomOf="@id/btnEdit" />
 
     <Button
         android:id="@+id/btnChangePass"
-        android:layout_width="120dp"
+        android:layout_width="190dp"
         android:layout_height="40dp"
-        android:text="Change Password"
         android:background="null"
+        android:fontFamily="@font/assistant"
+        android:text="Change Password"
         android:textColor="@color/black"
         android:textSize="15sp"
-        android:fontFamily="@font/assistant"
-        app:layout_constraintBottom_toTopOf="@id/divider1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintHorizontal_bias="0.004"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider1" />
 
@@ -103,11 +101,11 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnChangePass"/>
+        app:layout_constraintTop_toBottomOf="@id/btnChangePass" />
 
     <Button
         android:id="@+id/btnUpdate"
-        android:layout_width="120dp"
+        android:layout_width="190dp"
         android:layout_height="40dp"
         android:background="null"
         android:fontFamily="@font/assistant"
@@ -115,7 +113,7 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintHorizontal_bias="0.004"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
@@ -127,7 +125,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnUpdate"/>
+        app:layout_constraintTop_toBottomOf="@id/btnUpdate" />
 
     <TextView
         android:id="@+id/Others"
@@ -140,7 +138,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.101"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider3"/>
+        app:layout_constraintTop_toBottomOf="@id/divider3" />
 
     <Button
         android:id="@+id/terms"
@@ -152,7 +150,7 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Others" />
 
@@ -161,9 +159,24 @@
         android:layout_width="410dp"
         android:layout_height="2dp"
         android:background="@drawable/divider"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/terms" />
 
-
-
+    <Button
+        android:id="@+id/privacy"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:background="null"
+        android:fontFamily="@font/assistant"
+        android:text="Privacy Policy"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider4" />
+    
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -181,7 +181,7 @@
     <TextView
         android:id="@+id/TvLogin"
         android:layout_width="234dp"
-        android:layout_height="19dp"
+        android:layout_height="21dp"
         android:layout_marginBottom="9dp"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/anek_malayalam"

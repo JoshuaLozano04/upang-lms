@@ -1,8 +1,6 @@
-package com.upang.librarymanagementsystem;
+package com.upang.librarymanagementsystem.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -10,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.upang.librarymanagementsystem.R;
 
 public class MainActivity extends AppCompatActivity {
     TextView btnSignout;

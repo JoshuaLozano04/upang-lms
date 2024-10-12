@@ -16,28 +16,28 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".BookDetails"
+            android:name=".Activities.BookDetails"
             android:exported="true" />
         <activity
-            android:name=".AboutLMS"
+            android:name=".Activities.AboutLMS"
             android:exported="true" />
         <activity
-            android:name=".PrivacyPolicy"
+            android:name=".Activities.PrivacyPolicy"
             android:exported="true" />
         <activity
-            android:name=".TermsAndCondition"
+            android:name=".Activities.TermsAndCondition"
             android:exported="true" />
         <activity
-            android:name=".UpdateEmail"
+            android:name=".Activities.UpdateEmail"
             android:exported="true" />
         <activity
-            android:name=".ChangePassword"
+            android:name=".Activities.ChangePassword"
             android:exported="true" />
         <activity
-            android:name=".EditProfile"
+            android:name=".Activities.EditProfile"
             android:exported="true" />
         <activity
-            android:name=".SignUp"
+            android:name=".Activities.SignUp"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,10 +46,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Login"
+            android:name=".Activities.LoginPage"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:exported="true" />
 
         <meta-data

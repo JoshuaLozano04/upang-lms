@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:backgroundTint="#FFFFFF"
-    tools:context="WebPage">
+    tools:context=".Activities.WebPage">
 
     <LinearLayout
         android:id="@+id/linearLayout"

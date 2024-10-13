@@ -1,5 +1,6 @@
 package com.upang.librarymanagementsystem.Activities;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -43,13 +44,21 @@ public class LoginPage extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-
-
         });
         etEmail = findViewById(R.id.EtEmail);
         etPassword = findViewById(R.id.EtPass);
         btnLogin = findViewById(R.id.btnLogin);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        String token = sharedPreferences.getString("auth_token", null);
+
+        if (token != null) {
+            Intent intent = new Intent(LoginPage.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            return;
+        }
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -44,6 +44,16 @@ public class SignUp extends AppCompatActivity {
         TvLogin = findViewById(R.id.TvLogin);
         btnSignUp = findViewById(R.id.btnSignUp);
 
+        TvLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignUp.this, LoginPage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

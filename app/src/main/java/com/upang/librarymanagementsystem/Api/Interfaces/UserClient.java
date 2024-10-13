@@ -22,8 +22,10 @@ public interface UserClient {
             @Field("lastname") String lastname,
             @Field("email") String email,
             @Field("password") String password
-    );
 
+    );
+    @POST("logout") // Adjust this to your actual endpoint
+    Call<ResponseBody> logout(@Header("Authorization") String token);
     @POST("Books")
     Call<ResponseBody> getSecret(@Header("Authorization") String authToken);
 }

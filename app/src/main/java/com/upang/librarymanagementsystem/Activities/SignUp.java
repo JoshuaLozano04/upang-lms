@@ -103,13 +103,12 @@ public class SignUp extends AppCompatActivity {
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     try {
-                        String s = response.body().string();
-                        Toast.makeText(SignUp.this, s, Toast.LENGTH_LONG).show();
-                    } catch (IOException e) {
+                        Toast.makeText(SignUp.this, "Register successful", Toast.LENGTH_LONG).show();
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 } else {
-                    Toast.makeText(SignUp.this, "Response is not successful or body is null", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignUp.this, "Register unsuccessful", Toast.LENGTH_LONG).show();
                 }
             }
             @Override

@@ -30,8 +30,8 @@ public class LoginPage extends AppCompatActivity {
     private Button btnLogin;
 
     Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://top-stable-octopus.ngrok-free.app/api/")
-                .addConverterFactory(GsonConverterFactory.create());
+            .baseUrl("https://casual-visually-hare.ngrok-free.app/api/")
+            .addConverterFactory(GsonConverterFactory.create());
 
     Retrofit retrofit = builder.build();
     UserClient userClient = retrofit.create(UserClient.class);
@@ -41,42 +41,41 @@ public class LoginPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         etEmail = findViewById(R.id.EtEmail);
         etPassword = findViewById(R.id.EtPass);
         btnLogin = findViewById(R.id.btnLogin);
 
+        // Check if a token is already stored
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
         String token = sharedPreferences.getString("auth_token", null);
 
+        // If a token exists, go directly to WebPage
         if (token != null) {
-            Intent intent = new Intent(LoginPage.this, MainActivity.class);
+            Intent intent = new Intent(LoginPage.this, WebPage.class);
             startActivity(intent);
             finish();
-            return;
+            return; // Exit the onCreate method early to avoid executing the rest of the code
         }
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("LoginButton", "Login button clicked");
-                login();
-
-            }
+        // Handle login button click
+        btnLogin.setOnClickListener(view -> {
+            Log.d("LoginButton", "Login button clicked");
+            login();
         });
     }
-    private static String token;
 
     private void login() {
         String email = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
 
-
-        Login login = new Login(email,password);
+        Login login = new Login(email, password);
         Call<User> call = userClient.login(login);
 
         call.enqueue(new Callback<User>() {
@@ -84,13 +83,11 @@ public class LoginPage extends AppCompatActivity {
             public void onResponse(Call<User> call, Response<User> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     String token = response.body().getToken();
-
                     SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("auth_token", token);
                     editor.apply();
-
-                    Intent intent = new Intent(LoginPage.this, MainActivity.class);
+                    Intent intent = new Intent(LoginPage.this, WebPage.class);
                     startActivity(intent);
                     finish();
 
@@ -103,9 +100,8 @@ public class LoginPage extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<User> call, Throwable throwable) {
-                Toast.makeText(LoginPage.this,"Error2",Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginPage.this, "Error: " + throwable.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-
     }
 }

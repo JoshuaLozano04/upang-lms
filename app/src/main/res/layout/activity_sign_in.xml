@@ -5,15 +5,16 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#f2f3f4"
     tools:context=".Activities.SignUp"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="-5dp">
 
     <LinearLayout
+        android:textColor="@color/black"
         android:id="@+id/linearLayout"
-        android:layout_width="419dp"
-        android:layout_height="162dp"
+        android:layout_width="500dp"
+        android:layout_height="200dp"
         android:layout_marginBottom="550dp"
         android:background="@drawable/rectangle"
         android:orientation="vertical"
@@ -27,15 +28,16 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="419dp"
-        android:layout_height="110dp"
-        android:layout_marginTop="59dp"
+        android:layout_width="500dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="10dp"
         android:contentDescription="extrahud"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/hudbaroverlay" />
 
     <ImageView
@@ -57,16 +59,16 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="0dp"
         android:fontFamily="@font/castoro"
         android:text="Sign Up"
         android:textColor="@color/black"
-        android:textSize="34sp"
+        android:textSize="45sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/EtFirstname"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView1" />
 
@@ -79,6 +81,7 @@
         android:ems="10"
         android:hint="First Name"
         android:inputType="textPersonName"
+        android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:background="@drawable/edit_text_border"
         android:padding="10dp"
@@ -96,6 +99,7 @@
         android:layout_marginBottom="15dp"
         android:autofillHints="Last Name"
         android:background="@drawable/edit_text_border"
+        android:textColor="@color/black"
         android:ems="10"
         android:hint="Last Name"
         android:inputType="textPersonName"
@@ -108,6 +112,7 @@
         app:layout_constraintTop_toBottomOf="@id/EtFirstname" />
 
     <EditText
+        android:textColor="@color/black"
         android:id="@+id/EtPassword2"
         android:layout_width="228dp"
         android:layout_height="54dp"
@@ -127,6 +132,7 @@
         app:layout_constraintTop_toBottomOf="@id/EtPassword" />
 
     <EditText
+        android:textColor="@color/black"
         android:id="@+id/EtPassword"
         android:layout_width="230dp"
         android:layout_height="54dp"
@@ -139,7 +145,7 @@
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/EtPassword2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/EtEmail" />
 
@@ -150,6 +156,7 @@
         android:layout_marginBottom="15dp"
         android:autofillHints="emailAddress"
         android:background="@drawable/edit_text_border"
+        android:textColor="@color/black"
         android:ems="10"
         android:hint="Email Address"
         android:inputType="textEmailAddress"
@@ -179,8 +186,8 @@
 
     <TextView
         android:id="@+id/TvLogin"
-        android:layout_width="234dp"
-        android:layout_height="21dp"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
         android:layout_marginBottom="9dp"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/anek_malayalam"

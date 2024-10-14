@@ -17,6 +17,7 @@
         android:orientation="vertical"
         android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="@id/imageView1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></LinearLayout>
 
@@ -113,10 +114,12 @@
         android:layout_width="268dp"
         android:layout_height="60dp"
         android:layout_marginTop="4dp"
+        android:layout_marginBottom="228dp"
         android:backgroundTint="#137b64"
         android:fontFamily="@font/roboto_serif_semibold"
         android:text="Login"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"

@@ -10,23 +10,23 @@
         android:layout_height="250dp"
         android:layout_marginBottom="670dp"
         android:background="@drawable/rectangle"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.833" />
 
     <ImageView
+        android:id="@+id/imageView7"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="130dp"
+        android:layout_marginBottom="135dp"
         android:background="@drawable/arrow_back_"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout6"
         app:layout_constraintEnd_toStartOf="@+id/imageView4"
         app:layout_constraintStart_toStartOf="@+id/linearLayout6"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <ImageView
         android:id="@+id/imageView4"
@@ -37,4 +37,37 @@
         app:layout_constraintEnd_toEndOf="@+id/linearLayout6"
         app:layout_constraintStart_toStartOf="@+id/linearLayout6"
         app:layout_constraintTop_toTopOf="@+id/linearLayout6" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="80dp"
+        android:layout_marginStart="180dp"
+        android:background="@drawable/baseline_qr_code_"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toStartOf="@+id/imageView5"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout6" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="90dp"
+        android:background="@drawable/baseline_settings"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/account_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,7 @@ kotlin = "2.0.21"
 coreKtx = "1.13.1"
 datastoreCoreAndroid = "1.1.1"
 datastorePreferencesCoreJvm = "1.1.1"
+firebaseInappmessaging = "21.0.0"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -25,6 +26,7 @@ google-material = { group = "com.google.android.material", name = "material", ve
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 datastore-core-android = { group = "androidx.datastore", name = "datastore-core-android", version.ref = "datastoreCoreAndroid" }
 datastore-preferences-core-jvm = { group = "androidx.datastore", name = "datastore-preferences-core-jvm", version.ref = "datastorePreferencesCoreJvm" }
+firebase-inappmessaging = { group = "com.google.firebase", name = "firebase-inappmessaging", version.ref = "firebaseInappmessaging" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

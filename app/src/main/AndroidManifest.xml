@@ -19,6 +19,9 @@
             android:name=".Activities.Settings"
             android:exported="false" />
         <activity
+            android:name=".Activities.WelcomePage"
+            android:exported="true" />
+        <activity
             android:name=".Activities.BookDetails"
             android:exported="true" />
         <activity

@@ -88,8 +88,8 @@ public class SignUp extends AppCompatActivity {
             Toast.makeText(SignUp.this,"Password is required",Toast.LENGTH_LONG).show();
             return;
         }
-        if(password2 != password){
-            Toast.makeText(SignUp.this,"Password must match",Toast.LENGTH_LONG).show();
+        if (!password2.equals(password)) {
+            Toast.makeText(SignUp.this, "Password must match", Toast.LENGTH_LONG).show();
             return;
         }
         if(password.length() < 8){
@@ -106,12 +106,7 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    try {
-                        String s = response.body().string();
-                        Toast.makeText(SignUp.this, s, Toast.LENGTH_LONG).show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    Toast.makeText(SignUp.this, "Registered Successfully", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(SignUp.this, "Response is not successful or body is null", Toast.LENGTH_LONG).show();
                 }

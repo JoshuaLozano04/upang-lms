@@ -94,9 +94,9 @@ public class LoginPage extends AppCompatActivity {
                     startActivity(intent);
                     finish();
 
-                    Toast.makeText(LoginPage.this, "Token saved successfully", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginPage.this, "Login successfully", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(LoginPage.this, "Error: Could not log in", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginPage.this, "Error: Could not login", Toast.LENGTH_LONG).show();
                 }
             }
 

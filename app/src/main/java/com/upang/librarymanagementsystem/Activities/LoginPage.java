@@ -54,7 +54,7 @@ public class LoginPage extends AppCompatActivity {
         String token = sharedPreferences.getString("auth_token", null);
 
         if (token != null) {
-            Intent intent = new Intent(LoginPage.this, MainActivity.class);
+            Intent intent = new Intent(LoginPage.this, WebPage.class);
             startActivity(intent);
             finish();
             return;
@@ -90,7 +90,7 @@ public class LoginPage extends AppCompatActivity {
                     editor.putString("auth_token", token);
                     editor.apply();
 
-                    Intent intent = new Intent(LoginPage.this, MainActivity.class);
+                    Intent intent = new Intent(LoginPage.this, WebPage.class);
                     startActivity(intent);
                     finish();
 

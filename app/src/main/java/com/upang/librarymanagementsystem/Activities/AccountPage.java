@@ -75,13 +75,12 @@ public class AccountPage extends AppCompatActivity {
         Call<ProfileResponse> call = RetrofitClient
                 .getInstance()
                 .getApi()
-                .getProfile(token);
+                .getProfile("Bearer " + token);
 
         call.enqueue(new Callback<ProfileResponse>() {
             @Override
             public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    // Fetch the first name, last name, and email from the response
                     String firstName = response.body().getData().getFirstName();
                     String lastName = response.body().getData().getLastName();
                     String email = response.body().getData().getEmail();
@@ -97,7 +96,7 @@ public class AccountPage extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ProfileResponse> call, Throwable throwable) {
-                Toast.makeText(AccountPage.this, "Error fetching user data", Toast.LENGTH_LONG).show();
+                Toast.makeText(AccountPage.this, "Failed fetching user data", Toast.LENGTH_LONG).show();
 
             }
         });

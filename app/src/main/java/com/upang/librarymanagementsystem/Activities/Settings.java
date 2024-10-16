@@ -127,7 +127,6 @@ public class Settings extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
-
     }
 
     private void signOut(Context context){
@@ -142,18 +141,19 @@ public class Settings extends AppCompatActivity {
             call.enqueue(new Callback<Void>() {
                 @Override
                 public void onResponse(Call<Void> call, Response<Void> response) {
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.remove("auth_token");
-                    editor.apply();
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.remove("auth_token");
+                        editor.apply();
+                        Intent intent = new Intent(context, LoginPage.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        context.startActivity(intent);
 
-                    Intent intent = new Intent(context, LoginPage.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    context.startActivity(intent);
                 }
 
                 @Override
                 public void onFailure(Call<Void> call, Throwable throwable) {
-                    Toast.makeText(Settings.this, "Sign out Failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Settings.this, "Error: Could not sign out", Toast.LENGTH_LONG).show();
+
                 }
             });
 

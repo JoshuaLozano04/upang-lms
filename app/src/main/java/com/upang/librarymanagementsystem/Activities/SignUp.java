@@ -88,6 +88,10 @@ public class SignUp extends AppCompatActivity {
             Toast.makeText(SignUp.this,"Password is required",Toast.LENGTH_LONG).show();
             return;
         }
+        if(password2 != password){
+            Toast.makeText(SignUp.this,"Password must match",Toast.LENGTH_LONG).show();
+            return;
+        }
         if(password.length() < 8){
             Toast.makeText(SignUp.this,"Password should be 8 characters long",Toast.LENGTH_LONG).show();
             return;

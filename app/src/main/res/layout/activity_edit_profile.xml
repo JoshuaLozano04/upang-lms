@@ -49,7 +49,7 @@
         app:srcCompat="@drawable/account_logo" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/etCurrentPass"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="76dp"
@@ -63,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/etNewPass"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="24dp"
@@ -74,7 +74,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/etCurrentPass" />
 
     <Button
         android:id="@+id/button"
@@ -87,6 +87,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/etNewPass"
         app:layout_constraintVertical_bias="0.727" />
 </androidx.constraintlayout.widget.ConstraintLayout>

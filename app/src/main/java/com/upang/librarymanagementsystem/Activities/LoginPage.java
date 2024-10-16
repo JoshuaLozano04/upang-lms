@@ -94,7 +94,6 @@ public class LoginPage extends AppCompatActivity {
                     startActivity(intent);
                     finish();
 
-                    // Show a toast for confirmation
                     Toast.makeText(LoginPage.this, "Token saved successfully", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(LoginPage.this, "Error: Could not log in", Toast.LENGTH_LONG).show();

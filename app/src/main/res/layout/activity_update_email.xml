@@ -38,7 +38,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/etCurrentPass"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="100dp"
@@ -63,7 +63,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/etNewPass" />
 
     <EditText
         android:id="@+id/editText4"
@@ -80,7 +80,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editText3" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/etNewPass"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="24dp"
@@ -91,7 +91,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/etCurrentPass" />
 
     <Button
         android:id="@+id/button"

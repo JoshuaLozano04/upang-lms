@@ -144,12 +144,13 @@
             android:background="@drawable/divider" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/btnLogOut"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5sp"
-            android:textSize="16sp"
             android:layout_marginBottom="5sp"
-            android:text="Log out" />
+            android:padding="5sp"
+            android:text="Log out"
+            android:textSize="16sp" />
 
         <LinearLayout
             android:layout_width="match_parent"

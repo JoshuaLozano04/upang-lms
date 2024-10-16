@@ -26,38 +26,26 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/BtnBack"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="50dp"
-        android:background="@drawable/arrow"
-        android:backgroundTint="#FFFFFF"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toTopOf="@+id/tvLabel"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
-
-    <Button
         android:id="@+id/AccountPage"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginRight="50dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="19dp"
         android:layout_marginBottom="55dp"
         android:background="@drawable/user"
         android:backgroundTint="#FFFFFF"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toTopOf="@+id/tvLabel"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/DropDown"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="@+id/linearLayout" />
 
     <Button
         android:id="@+id/DropDown"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginBottom="55dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="59dp"
         android:background="@drawable/burger"
         android:backgroundTint="#FFFFFF"
         app:backgroundTint="@null"
@@ -71,6 +59,7 @@
         android:layout_width="259dp"
         android:layout_height="144dp"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="82dp"
         android:layout_marginBottom="112dp"
         android:contentDescription="Logo"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout"

@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -17,7 +18,12 @@ import com.upang.librarymanagementsystem.R;
 
 public class Settings extends AppCompatActivity {
     TextView btnLogOut;
+    ImageButton btnBackSetting;
     TextView btnEditProfile;
+    TextView btnChangePassword;
+    TextView btnTerms;
+    TextView btnPrivacy;
+    TextView btnAboutLMS;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +40,72 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 logOut();
+            }
+        });
+
+        btnEditProfile = findViewById(R.id.btnEditProfile);
+
+        btnEditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Settings.this, EditProfile.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btnChangePassword = findViewById(R.id.btnChangePassword);
+
+        btnChangePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Settings.this, ChangePassword.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btnTerms = findViewById(R.id.btnTerms);
+
+        btnTerms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Settings.this, TermsAndCondition.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btnPrivacy = findViewById(R.id.btnPrivacy);
+
+        btnPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Settings.this, PrivacyPolicy.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btnAboutLMS = findViewById(R.id.btnAboutLMS);
+
+        btnAboutLMS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Settings.this, AboutLMS.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btnBackSetting = findViewById(R.id.btnBackSetting);
+
+        btnBackSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Settings.this, AccountPage.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

@@ -48,6 +48,7 @@
         android:layout_height="50dp"
         android:layout_marginBottom="80dp"
         android:layout_marginStart="180dp"
+        android:contentDescription="ImageButton"
         android:background="@drawable/baseline_qr_code_"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
         app:layout_constraintEnd_toStartOf="@+id/btnCog"
@@ -74,38 +75,37 @@
         android:layout_marginTop="100dp"
         android:layout_marginBottom="24dp"
         android:background="@drawable/account_logo"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
 
-    <Button
-        android:id="@+id/button2"
+    <TextView
+        android:id="@+id/tvName"
         android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="#137A63"
-        android:text="NAME"
-        android:fontFamily="@font/assistant"
+        android:layout_height="50sp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/textview_circle"
+        android:gravity="center"
+        android:text="Name"
+        android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
-    <Button
-        android:id="@+id/button3"
+    <TextView
+        android:id="@+id/tvEmail"
         android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="300dp"
-        android:backgroundTint="#137A63"
-        android:text="EMAIL"
+        android:layout_height="50sp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/textview_circle"
+        android:gravity="center"
+        android:text="Email"
+        android:textColor="@color/white"
         android:textSize="20sp"
-        android:fontFamily="@font/assistant"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
-
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
+            android:id="@+id/btnBackEP"
             android:layout_width="50dp"
             android:layout_height="70dp"
             android:background="@android:color/transparent"

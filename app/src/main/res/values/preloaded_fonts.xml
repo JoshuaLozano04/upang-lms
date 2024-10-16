@@ -3,5 +3,6 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/anek_malayalam</item>
         <item>@font/assistant_extrabold</item>
+        <item>@font/assistant_semibold</item>
     </array>
 </resources>

@@ -11,7 +11,9 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="70sp"
+        android:layout_marginBottom="8dp"
         android:background="#137A63"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -40,7 +42,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="56sp"
+        android:layout_marginBottom="56dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
@@ -48,19 +52,19 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5sp"
             android:padding="5sp"
             android:text="General"
             android:textSize="18sp"
-            android:layout_marginBottom="5sp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5sp"
-            android:textSize="16sp"
             android:layout_marginBottom="5sp"
-            android:text="Edit Profile" />
+            android:padding="5sp"
+            android:text="Edit Profile"
+            android:textSize="16sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -71,10 +75,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5sp"
-            android:textSize="16sp"
             android:layout_marginBottom="5sp"
-            android:text="Change Password" />
+            android:padding="5sp"
+            android:text="Change Password"
+            android:textSize="16sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -84,10 +88,13 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginTop="56sp"
+        android:layout_marginBottom="342dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
@@ -95,19 +102,19 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5sp"
             android:padding="5sp"
             android:text="Others"
             android:textSize="18sp"
-            android:layout_marginBottom="5sp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5sp"
-            android:textSize="16sp"
             android:layout_marginBottom="5sp"
-            android:text="Terms and Condition" />
+            android:padding="5sp"
+            android:text="Terms and Condition"
+            android:textSize="16sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -118,10 +125,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5sp"
-            android:textSize="16sp"
             android:layout_marginBottom="5sp"
-            android:text="Privacy Policy" />
+            android:padding="5sp"
+            android:text="Privacy Policy"
+            android:textSize="16sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -132,10 +139,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5sp"
-            android:textSize="16sp"
             android:layout_marginBottom="5sp"
-            android:text="About LMS" />
+            android:padding="5sp"
+            android:text="About LMS"
+            android:textSize="16sp" />
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -6,12 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.BookDetails">
+
     <LinearLayout
-        android:background="@color/white"
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:background="@color/white"
         android:backgroundTint="#137A63"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -28,8 +30,8 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="#D9D9D9"
             android:layout_gravity="center"
+            android:background="#D9D9D9"
             android:gravity="center"
             android:paddingLeft="20dp"
             android:paddingTop="6dp"
@@ -43,12 +45,14 @@
 
 
     <ScrollView
-        android:scrollbars="none"
+        android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -96,6 +100,7 @@
                         android:text="Authors" />
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/linearLayout4"
                 android:layout_width="match_parent"
@@ -103,6 +108,7 @@
                 android:layout_margin="8dp"
                 android:orientation="vertical"
                 android:padding="16dp">
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
@@ -151,80 +157,84 @@
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="8dp">
+                android:layout_margin="8dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/textview_circle"
                     android:gravity="center"
                     android:text="Subject"
-                    android:background="@drawable/textview_circle"
-                    android:textColor="@color/white"
-                    android:layout_margin="8dp"/>
+                    android:textColor="@color/white" />
+
                 <TextView
                     android:layout_width="370dp"
                     android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/textview_circle_grey"
                     android:gravity="center"
                     android:text=""
-                    android:background="@drawable/textview_circle_grey"
-                    android:textColor="@color/white"
-                    android:layout_margin="8dp"/>
+                    android:textColor="@color/white" />
 
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/textview_circle"
                     android:gravity="center"
                     android:text="Location"
-                    android:background="@drawable/textview_circle"
-                    android:textColor="@color/white"
-                    android:layout_margin="8dp"/>
+                    android:textColor="@color/white" />
+
                 <TextView
                     android:layout_width="370dp"
                     android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/textview_circle_grey"
                     android:gravity="center"
                     android:text=""
-                    android:background="@drawable/textview_circle_grey"
-                    android:textColor="@color/white"
-                    android:layout_margin="8dp"/>
+                    android:textColor="@color/white" />
 
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/textview_circle"
                     android:gravity="center"
                     android:text="Copies"
-                    android:background="@drawable/textview_circle"
-                    android:textColor="@color/white"
-                    android:layout_margin="8dp"/>
+                    android:textColor="@color/white" />
+
                 <TextView
                     android:layout_width="370dp"
                     android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/textview_circle_grey"
                     android:gravity="center"
                     android:text=""
-                    android:background="@drawable/textview_circle_grey"
-                    android:textColor="@color/white"
-                    android:layout_margin="8dp"/>
+                    android:textColor="@color/white" />
 
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/textview_circle"
                     android:gravity="center"
                     android:text="Publisher"
-                    android:background="@drawable/textview_circle"
-                    android:textColor="@color/white"
-                    android:layout_margin="8dp"/>
+                    android:textColor="@color/white" />
 
                 <TextView
                     android:layout_width="370dp"
                     android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/textview_circle_grey"
                     android:gravity="center"
                     android:text=""
-                    android:background="@drawable/textview_circle_grey"
-                    android:textColor="@color/white"
-                    android:layout_margin="8dp"/>
+                    android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

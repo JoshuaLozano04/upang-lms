@@ -17,6 +17,8 @@ import com.upang.librarymanagementsystem.R;
 
 public class Settings extends AppCompatActivity {
     TextView btnLogOut;
+    TextView btnEditProfile;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);

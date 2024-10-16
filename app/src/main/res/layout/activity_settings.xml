@@ -59,6 +59,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/btnEditProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5sp"
@@ -73,6 +74,7 @@
             android:background="@drawable/divider" />
 
         <TextView
+            android:id="@+id/btnChangePassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5sp"
@@ -109,6 +111,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="btnTerms_Conditions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5sp"
@@ -123,6 +126,7 @@
             android:background="@drawable/divider" />
 
         <TextView
+            android:id="@+id/btnPrivacy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5sp"
@@ -137,6 +141,7 @@
             android:background="@drawable/divider" />
 
         <TextView
+            android:id="@+id/btnAboutLMS"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5sp"

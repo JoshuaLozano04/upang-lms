@@ -38,4 +38,5 @@ public class WelcomePage extends AppCompatActivity {
                 finish();
             }
         });
-}}
+    }
+}

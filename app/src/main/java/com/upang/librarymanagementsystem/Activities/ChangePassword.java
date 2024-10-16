@@ -2,10 +2,12 @@ package com.upang.librarymanagementsystem.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -26,6 +28,7 @@ import retrofit2.Response;
 public class ChangePassword extends AppCompatActivity {
     EditText etCurrentPassword, etNewPassword, etRetypePassword;
     Button btnChangePassword;
+    ImageButton btnBackChangePass;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,16 @@ public class ChangePassword extends AppCompatActivity {
             }
         });
 
+        btnBackChangePass = findViewById(R.id.btnBackChangePass);
+
+        btnBackChangePass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChangePassword.this, Settings.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
 

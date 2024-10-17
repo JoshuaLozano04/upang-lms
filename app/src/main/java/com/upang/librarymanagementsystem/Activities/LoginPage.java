@@ -30,7 +30,7 @@ public class LoginPage extends AppCompatActivity {
     private Button btnLogin;
 
     Retrofit.Builder builder = new Retrofit.Builder()
-            .baseUrl("https://casual-visually-hare.ngrok-free.app/api/")
+            .baseUrl("https://strangely-pumped-horse.ngrok-free.app/api/")
             .addConverterFactory(GsonConverterFactory.create());
 
     Retrofit retrofit = builder.build();

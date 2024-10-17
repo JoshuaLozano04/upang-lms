@@ -3,8 +3,11 @@ package com.upang.librarymanagementsystem.Activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,9 +15,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.upang.librarymanagementsystem.Api.Interfaces.UserClient;
+import com.upang.librarymanagementsystem.Api.Interfaces.BooksApiService;
 import com.upang.librarymanagementsystem.Api.Client.RetrofitClient;
+import com.upang.librarymanagementsystem.Api.Interfaces.UserClient;
+import com.upang.librarymanagementsystem.Api.Model.Books; // Import your Books model class
+import com.upang.librarymanagementsystem.Api.Model.BooksResponse;
 import com.upang.librarymanagementsystem.R;
+
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -24,6 +32,18 @@ import retrofit2.Response;
 public class WebPage extends AppCompatActivity {
     private Button btnLogout; // Declare the logout button
     private UserClient userClient; // Declare the UserClient
+    private BooksApiService booksApiService; // Declare the BooksApiService
+
+    // Declare TextViews for book details
+    private TextView authorTextView;
+    private TextView bookTitleTextView;
+    private TextView bookCopiesTextView;
+    private TextView publisherTextView;
+    private TextView descriptionTextView;
+    private TextView bookCoverTextView;
+    private TextView locationTextView;
+    private TextView statusTextView;
+    private TextView categoryTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,23 +51,85 @@ public class WebPage extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_webpage);
 
-        // Initialize the UserClient instance
-        userClient = RetrofitClient.getInstance().getApi(); // Change this line
+        // Initialize the UserClient and BooksApiService instances
+        userClient = RetrofitClient.getInstance(getApplicationContext()).getApi();
+        booksApiService = RetrofitClient.getInstance(getApplicationContext()).getBooksApiService();
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        // Initialize TextView references
+        authorTextView = findViewById(R.id.Author);
+        bookTitleTextView = findViewById(R.id.Booktitle);
+        bookCopiesTextView = findViewById(R.id.Bookcopies);
+        publisherTextView = findViewById(R.id.Publisher);
+        descriptionTextView = findViewById(R.id.Description);
+        bookCoverTextView = findViewById(R.id.Bookcover);
+        locationTextView = findViewById(R.id.Location);
+        statusTextView = findViewById(R.id.Status);
+        categoryTextView = findViewById(R.id.Category);
 
         btnLogout = findViewById(R.id.btnLogout); // Initialize the logout button
 
         // Handle logout button click
         btnLogout.setOnClickListener(view -> logout());
+
+        fetchBooks();
     }
 
-    private void logout() {
+    private void fetchBooks() {
         // Retrieve the token from SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        String token = sharedPreferences.getString("auth_token", null);
+
+        if (token != null) {
+            // Make the API call
+            Call<BooksResponse> call = booksApiService.getBooks("Bearer " + token);
+            call.enqueue(new Callback<BooksResponse>() {
+                @Override
+                public void onResponse(Call<BooksResponse> call, Response<BooksResponse> response) {
+                    // Log the response body
+                    Log.d("FetchBooksResponse", "Response: " + response.raw().toString());
+
+                    if (response.isSuccessful()) {
+                        BooksResponse booksResponse = response.body(); // Get the response body
+                        if (booksResponse != null && booksResponse.getData() != null) {
+                            List<Books> booksList = booksResponse.getData(); // Get the list of books
+                            if (!booksList.isEmpty()) {
+                                // Display the first book in the list
+                                Books book = booksList.get(0); // or iterate through the list if needed
+
+                                // Set the data in the TextViews
+                                authorTextView.setText(book.getAuthor());
+                                bookTitleTextView.setText(book.getBooktitle());
+                                bookCopiesTextView.setText(String.valueOf(book.getBookcopies()));
+                                publisherTextView.setText(book.getPublisher());
+                                descriptionTextView.setText(book.getDescription());
+                                bookCoverTextView.setText(book.getBookcover());
+                                locationTextView.setText(book.getLocation());
+                                statusTextView.setText(book.getStatus() == 1 ? "Available" : "Not Available");
+                                categoryTextView.setText(book.getCategory());
+                            } else {
+                                Toast.makeText(WebPage.this, "No books found", Toast.LENGTH_LONG).show();
+                            }
+                        } else {
+                            Toast.makeText(WebPage.this, "Failed to fetch books: No data available", Toast.LENGTH_LONG).show();
+                        }
+                    } else {
+                        Toast.makeText(WebPage.this, "Failed to fetch books: " + response.message(), Toast.LENGTH_LONG).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<BooksResponse> call, Throwable t) {
+                    Toast.makeText(WebPage.this, "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
+        } else {
+            Toast.makeText(this, "Token is null. Please log in again.", Toast.LENGTH_LONG).show();
+        }
+    }
+
+
+
+    private void logout() {
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
         String token = sharedPreferences.getString("auth_token", null);
 
@@ -58,7 +140,7 @@ public class WebPage extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                     if (response.isSuccessful()) {
-                        // Clear the token from SharedPreferences
+                        // Handle successful logout
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.remove("auth_token");
                         editor.apply();
@@ -72,7 +154,16 @@ public class WebPage extends AppCompatActivity {
                         Toast.makeText(WebPage.this, "Logged out successfully", Toast.LENGTH_LONG).show();
                     } else {
                         // Handle unsuccessful logout
-                        Toast.makeText(WebPage.this, "Logout failed: " + response.message(), Toast.LENGTH_LONG).show();
+                        if (response.code() == 401) {
+                            // Session expired, inform the user
+                            Toast.makeText(WebPage.this, "Session expired. Please log in again.", Toast.LENGTH_LONG).show();
+                            // Optionally, redirect to login
+                            Intent intent = new Intent(WebPage.this, LoginPage.class);
+                            startActivity(intent);
+                            finish(); // Call finish to close the current activity
+                        } else {
+                            Toast.makeText(WebPage.this, "Logout failed: " + response.message(), Toast.LENGTH_LONG).show();
+                        }
                     }
                 }
 

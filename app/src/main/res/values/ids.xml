@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="linearLayout6" type="id" />
+    <item name="imageView7" type="id" />
+    <item name="imageView4" type="id" />
+    <item name="btnQR" type="id" />
+    <item name="btnCog" type="id" />
+    <item name="imageView8" type="id" />
+    <item name="tvName" type="id" />
+    <item name="tvEmail" type="id" />
+</resources>

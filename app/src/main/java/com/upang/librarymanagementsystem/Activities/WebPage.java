@@ -7,6 +7,7 @@ import android.service.autofill.UserData;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ public class WebPage extends AppCompatActivity {
     private Button btnLogout; // Declare the logout button
     private UserClient userClient; // Declare the UserClient
     private BooksApiService booksApiService; // Declare the BooksApiService
+    Button AccountPage; // Moves you to the account page UI
 
     // Declare TextViews for book details
     private TextView authorTextView;
@@ -80,9 +82,19 @@ public class WebPage extends AppCompatActivity {
 
             }
         });
+
+        AccountPage = findViewById(R.id.AccountPage);
+
+        AccountPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WebPage.this, AccountPage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         fetchProfile();
     }
-
 
     private void fetchBooks() {
         // Retrieve the token from SharedPreferences

@@ -11,6 +11,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="70sp"
+        android:layout_marginTop="52dp"
         android:layout_marginBottom="8dp"
         android:background="#137A63"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
@@ -75,7 +76,7 @@
             android:background="@drawable/divider" />
 
         <TextView
-            android:id="@+id/btnChangePassword"
+            android:id="@+id/btnChangePass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5sp"

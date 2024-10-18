@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F6F6">
+    android:background="#F6F6F6"
+    android:id="@+id/main">
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -18,8 +19,10 @@
         app:layout_constraintTop_toTopOf="parent" >
 
         <ImageButton
+            android:id="@+id/btnBackQR"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:contentDescription="@string/backbtn"
             android:layout_marginBottom="90dp"
             android:background="@drawable/arrow" />
 
@@ -29,15 +32,26 @@
             android:layout_height="199dp"
             android:fontFamily="@font/roboto_serif_semibold"
             android:gravity="center"
-            android:text="Scan QR
-            code to enter
-            library"
+            android:text="@string/scan_qr_code_to_enter_library"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="35sp" />
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btnCreateQR"
+        android:layout_width="250dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="500dp"
+        android:backgroundTint="#137b64"
+        android:text="Generate"
+        android:textSize="25sp"
+        android:fontFamily="@font/roboto_serif_semibold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
 
 
 

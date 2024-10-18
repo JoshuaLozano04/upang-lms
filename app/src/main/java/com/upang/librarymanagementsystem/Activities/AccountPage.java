@@ -1,6 +1,11 @@
 package com.upang.librarymanagementsystem.Activities;
 
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,14 +16,51 @@ import androidx.core.view.WindowInsetsCompat;
 import com.upang.librarymanagementsystem.R;
 
 public class AccountPage extends AppCompatActivity {
+    ImageButton btnBackAcc;
+    ImageButton btnQR;
+    ImageButton btnCog;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_webpage);
+        setContentView(R.layout.activity_account_page);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        btnBackAcc = findViewById(R.id.btnBackAcc);
+
+        btnBackAcc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AccountPage.this, WebPage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btnQR = findViewById(R.id.btnQR);
+
+        btnQR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AccountPage.this, QRCode.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btnCog = findViewById(R.id.btnCog);
+
+        btnCog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AccountPage.this, Settings.class);
+                startActivity(intent);
+                finish();
+            }
         });
     }
 }

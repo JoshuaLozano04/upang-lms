@@ -16,14 +16,14 @@ import androidx.core.view.WindowInsetsCompat;
 import com.upang.librarymanagementsystem.R;
 
 public class AccountPage extends AppCompatActivity {
-    ImageButton btnBackAccount;
+    ImageButton btnBackAcc;
     ImageButton btnQR;
     ImageButton btnCog;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_webpage);
+        setContentView(R.layout.activity_account_page);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -32,7 +32,7 @@ public class AccountPage extends AppCompatActivity {
 
         btnBackAcc = findViewById(R.id.btnBackAcc);
 
-        btnBackAccount.setOnClickListener(new View.OnClickListener() {
+        btnBackAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AccountPage.this, WebPage.class);

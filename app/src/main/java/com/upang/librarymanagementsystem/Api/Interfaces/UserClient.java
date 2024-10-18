@@ -1,6 +1,8 @@
 package com.upang.librarymanagementsystem.Api.Interfaces;
 import com.upang.librarymanagementsystem.Api.Model.Books;
+import com.upang.librarymanagementsystem.Api.Model.BooksResponse;
 import com.upang.librarymanagementsystem.Api.Model.Login;
+import com.upang.librarymanagementsystem.Api.Model.ProfileResponse;
 import com.upang.librarymanagementsystem.Api.Model.User;
 
 import java.util.List;
@@ -21,6 +23,8 @@ public interface UserClient {
     @POST("logout") // Adjust the endpoint as necessary
     Call<ResponseBody> logout(@Header("Authorization") String token);
 
+    @GET("profile")
+    Call<ProfileResponse> getProfile(@Header("Authorization") String token);
 
 
     @FormUrlEncoded

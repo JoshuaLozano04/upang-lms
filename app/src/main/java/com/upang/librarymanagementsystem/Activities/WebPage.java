@@ -3,7 +3,9 @@ package com.upang.librarymanagementsystem.Activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.service.autofill.UserData;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +22,8 @@ import com.upang.librarymanagementsystem.Api.Client.RetrofitClient;
 import com.upang.librarymanagementsystem.Api.Interfaces.UserClient;
 import com.upang.librarymanagementsystem.Api.Model.Books; // Import your Books model class
 import com.upang.librarymanagementsystem.Api.Model.BooksResponse;
+import com.upang.librarymanagementsystem.Api.Model.ProfileResponse;
+import com.upang.librarymanagementsystem.Api.Model.User;
 import com.upang.librarymanagementsystem.R;
 
 import java.util.List;
@@ -68,11 +72,17 @@ public class WebPage extends AppCompatActivity {
 
         btnLogout = findViewById(R.id.btnLogout); // Initialize the logout button
 
-        // Handle logout button click
-        btnLogout.setOnClickListener(view -> logout());
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logOut();
+                Log.d("Button Test", "buttonClicked");
 
-        fetchBooks();
+            }
+        });
+        fetchProfile();
     }
+
 
     private void fetchBooks() {
         // Retrieve the token from SharedPreferences
@@ -86,35 +96,35 @@ public class WebPage extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<BooksResponse> call, Response<BooksResponse> response) {
                     // Log the response body
-                    Log.d("FetchBooksResponse", "Response: " + response.raw().toString());
+                        Log.d("FetchBooksResponse", "Response: " + response.raw().toString());
 
-                    if (response.isSuccessful()) {
-                        BooksResponse booksResponse = response.body(); // Get the response body
-                        if (booksResponse != null && booksResponse.getData() != null) {
-                            List<Books> booksList = booksResponse.getData(); // Get the list of books
-                            if (!booksList.isEmpty()) {
-                                // Display the first book in the list
-                                Books book = booksList.get(0); // or iterate through the list if needed
+                        if (response.isSuccessful()) {
+                            BooksResponse booksResponse = response.body(); // Get the response body
+                            if (booksResponse != null && booksResponse.getData() != null) {
+                                List<Books> booksList = booksResponse.getData(); // Get the list of books
+                                if (!booksList.isEmpty()) {
+                                    // Display the first book in the list
+                                    Books book = booksList.get(0); // or iterate through the list if needed
 
-                                // Set the data in the TextViews
-                                authorTextView.setText(book.getAuthor());
-                                bookTitleTextView.setText(book.getBooktitle());
-                                bookCopiesTextView.setText(String.valueOf(book.getBookcopies()));
-                                publisherTextView.setText(book.getPublisher());
-                                descriptionTextView.setText(book.getDescription());
-                                bookCoverTextView.setText(book.getBookcover());
-                                locationTextView.setText(book.getLocation());
-                                statusTextView.setText(book.getStatus() == 1 ? "Available" : "Not Available");
-                                categoryTextView.setText(book.getCategory());
+                                    // Set the data in the TextViews
+                                    authorTextView.setText(book.getAuthor());
+                                    bookTitleTextView.setText(book.getBooktitle());
+                                    bookCopiesTextView.setText(String.valueOf(book.getBookcopies()));
+                                    publisherTextView.setText(book.getPublisher());
+                                    descriptionTextView.setText(book.getDescription());
+                                    bookCoverTextView.setText(book.getBookcover());
+                                    locationTextView.setText(book.getLocation());
+                                    statusTextView.setText(book.getStatus() == 1 ? "Available" : "Not Available");
+                                    categoryTextView.setText(book.getCategory());
+                                } else {
+                                    Toast.makeText(WebPage.this, "No books found", Toast.LENGTH_LONG).show();
+                                }
                             } else {
-                                Toast.makeText(WebPage.this, "No books found", Toast.LENGTH_LONG).show();
+                                Toast.makeText(WebPage.this, "Failed to fetch books: No data available", Toast.LENGTH_LONG).show();
                             }
                         } else {
-                            Toast.makeText(WebPage.this, "Failed to fetch books: No data available", Toast.LENGTH_LONG).show();
+                            Toast.makeText(WebPage.this, "Failed to fetch books: " + response.message(), Toast.LENGTH_LONG).show();
                         }
-                    } else {
-                        Toast.makeText(WebPage.this, "Failed to fetch books: " + response.message(), Toast.LENGTH_LONG).show();
-                    }
                 }
 
                 @Override
@@ -129,10 +139,9 @@ public class WebPage extends AppCompatActivity {
 
 
 
-    private void logout() {
+    private void logOut() {
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
         String token = sharedPreferences.getString("auth_token", null);
-
         if (token != null) {
             // Call the logout API
             Call<ResponseBody> call = userClient.logout("Bearer " + token);
@@ -176,6 +185,58 @@ public class WebPage extends AppCompatActivity {
         } else {
             // Token is null, handle error
             Toast.makeText(WebPage.this, "You are not logged in", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void fetchProfile(){
+        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        String token = sharedPreferences.getString("auth_token", null);
+
+        if (token != null){
+            Call<ProfileResponse> call = RetrofitClient
+                    .getInstance(getApplicationContext())
+                    .getApi()
+                    .getProfile("Bearer " + token);
+
+            call.enqueue(new Callback<ProfileResponse>() {
+                @Override
+                public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
+                    Log.d("FetchBooksResponse", "Response: " + response.raw().toString());
+
+                    if (response.isSuccessful()) {
+                        ProfileResponse profileResponse = response.body(); // Get the response body
+                        if (profileResponse != null && profileResponse.getData() != null) {
+                            List<User> profile = profileResponse.getData(); // Get the list of books
+                            if (!profile.isEmpty()) {
+                                // Display the first book in the list
+                                User user = profile.get(0); // or iterate through the list if needed
+
+                                // Set the data in the TextViews
+                                authorTextView.setText(user.getFirstname());
+                                bookTitleTextView.setText(user.getLastname());
+//                                bookCopiesTextView.setText(String.valueOf(book.getBookcopies()));
+//                                publisherTextView.setText(book.getPublisher());
+//                                descriptionTextView.setText(book.getDescription());
+//                                bookCoverTextView.setText(book.getBookcover());
+//                                locationTextView.setText(book.getLocation());
+//                                statusTextView.setText(book.getStatus() == 1 ? "Available" : "Not Available");
+//                                categoryTextView.setText(book.getCategory());
+                            } else {
+                                Toast.makeText(WebPage.this, "No books found", Toast.LENGTH_LONG).show();
+                            }
+                        } else {
+                            Toast.makeText(WebPage.this, "Failed to fetch books: No data available", Toast.LENGTH_LONG).show();
+                        }
+                    } else {
+                        Toast.makeText(WebPage.this, "Failed to fetch books: " + response.message(), Toast.LENGTH_LONG).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ProfileResponse> call, Throwable t) {
+                    Toast.makeText(WebPage.this, "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
         }
     }
 }

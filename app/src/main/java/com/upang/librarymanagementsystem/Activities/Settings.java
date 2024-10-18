@@ -1,10 +1,12 @@
 package com.upang.librarymanagementsystem.Activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +14,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.upang.librarymanagementsystem.Api.Client.RetrofitClient;
+import com.upang.librarymanagementsystem.Api.Interfaces.UserClient;
 import com.upang.librarymanagementsystem.R;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Settings extends AppCompatActivity {
     ImageButton btnBackSetting;
@@ -22,6 +31,7 @@ public class Settings extends AppCompatActivity {
     TextView btnPrivacy;
     TextView btnAboutLMS;
     TextView btnLogOut;
+    private UserClient userClient;
 
 
     @Override
@@ -100,5 +110,47 @@ public class Settings extends AppCompatActivity {
                 finish();
             }
         });
+
+        btnLogOut = findViewById(R.id.btnLogOut);
+
+        userClient = RetrofitClient.getInstance(getApplicationContext()).getApi();
+
+        btnLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logOut();
+            }
+        });
+    }
+    private void logOut(){
+        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        String token = sharedPreferences.getString("auth_token", null);
+
+        if (token != null){
+            Call<ResponseBody> call = userClient.logout("Bearer " + token);
+            call.enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    if(response.isSuccessful()){
+                        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.remove("auth_token"); // Remove the token
+                        editor.apply();
+                        Toast.makeText(Settings.this, "Logout Successful", Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(Settings.this, LoginPage.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(Settings.this, "Logout Fail", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable throwable) {
+
+                }
+            });
+        }
     }
 }

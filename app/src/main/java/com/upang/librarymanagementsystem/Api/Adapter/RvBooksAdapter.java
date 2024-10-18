@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,14 +19,17 @@ import com.upang.librarymanagementsystem.Api.Model.BookList;
 import com.upang.librarymanagementsystem.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHolder> {
 
     Context context;
-    ArrayList<BookList> bookLists;
+    private ArrayList<BookList> bookLists;
+    private ArrayList<BookList> filteredBookLists;
     public RvBooksAdapter(Context context, ArrayList<BookList> arrayList){
         this.context = context;
         this.bookLists = arrayList;
+        this.filteredBookLists = new ArrayList<>(arrayList);
     }
 
     @NonNull
@@ -37,12 +41,44 @@ public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull RvBooksAdapter.ViewHolder holder, int position) {
-        holder.bind(bookLists.get(position));
+        holder.bind(filteredBookLists.get(position)); // Bind filtered data
     }
 
     @Override
     public int getItemCount() {
-        return bookLists.size();
+        return filteredBookLists.size();
+    }
+
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                String query = constraint.toString().toLowerCase().trim();
+                FilterResults results = new FilterResults();
+
+                if (query.isEmpty()) {
+                    results.values = new ArrayList<>(bookLists); // Show all books when query is empty
+                } else {
+                    List<BookList> filteredList = new ArrayList<>();
+                    for (BookList book : bookLists) {
+                        if (book.getBookTitle().toLowerCase().contains(query)) {
+                            filteredList.add(book);
+                        }
+                    }
+                    results.values = filteredList;
+                }
+                return results;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                filteredBookLists.clear();
+                if (results.values != null) {
+                    filteredBookLists.addAll((List<BookList>) results.values);
+                }
+                notifyDataSetChanged();
+            }
+        };
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -79,8 +115,7 @@ public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHold
         public void bind(BookList bookList){
             author.setText(bookList.getAuthor());
             title.setText(bookList.getBookTitle());
-            String imageUrl = "https://top-stable-octopus.ngrok-free.app/" + bookList.getBookCover();
-            Glide.with(context).load(imageUrl).into(cover);
+            Glide.with(context).load(bookList.getBookCover()).into(cover);
         }
     }
 }

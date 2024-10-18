@@ -20,6 +20,9 @@
             android:name=".Activities.WebPage"
             android:exported="true" />
         <activity
+            android:name=".Activities.AccountPage"
+            android:exported="true" />
+        <activity
             android:name=".Activities.Settings"
             android:exported="false" />
         <activity

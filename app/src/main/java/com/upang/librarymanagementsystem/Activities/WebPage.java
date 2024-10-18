@@ -4,13 +4,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.Button;
+import android.widget.SearchView;
 
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.upang.librarymanagementsystem.Api.Adapter.RvBooksAdapter;
@@ -22,14 +23,14 @@ import com.upang.librarymanagementsystem.R;
 
 import java.util.ArrayList;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class WebPage extends AppCompatActivity {
-//    private Button btnLogout; // Declare the logout button
-    private UserClient userClient; // Declare the UserClient
+    private Button accountPage;
+    private UserClient userClient;
+    private SearchView searchView;
 
     RecyclerView rv_bookdisplay;
     RvBooksAdapter rvBooksAdapter;
@@ -40,7 +41,30 @@ public class WebPage extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_webpage);
         userClient = RetrofitClient.getInstance(getApplicationContext()).getApi();
-//      btnLogout = findViewById(R.id.btnLogout);
+        accountPage = findViewById(R.id.AccountPage);
+        searchView = findViewById(R.id.searchView1);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                rvBooksAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                rvBooksAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+        accountPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WebPage.this, AccountPage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         bookLists = new ArrayList<>();
         rv_bookdisplay = findViewById(R.id.rv_bookdisplay);
@@ -49,15 +73,20 @@ public class WebPage extends AppCompatActivity {
         rvBooksAdapter = new RvBooksAdapter(WebPage.this,bookLists);
         rv_bookdisplay.setAdapter(rvBooksAdapter);
         fetchBooks();
-//        btnLogout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                logOut();
-//                Log.d("Button Test", "buttonClicked");
-//
-//            }
-//        });
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                rvBooksAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                rvBooksAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
 
 
     }
@@ -90,57 +119,6 @@ public class WebPage extends AppCompatActivity {
 
                 }
             });
-        }
-    }
-
-
-
-    private void logOut() {
-        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
-        String token = sharedPreferences.getString("auth_token", null);
-        if (token != null) {
-            // Call the logout API
-            Call<ResponseBody> call = userClient.logout("Bearer " + token);
-            call.enqueue(new Callback<ResponseBody>() {
-                @Override
-                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                    if (response.isSuccessful()) {
-                        // Handle successful logout
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.remove("auth_token");
-                        editor.apply();
-
-                        // Redirect to LoginPage
-                        Intent intent = new Intent(WebPage.this, LoginPage.class);
-                        startActivity(intent);
-                        finish();
-
-                        // Optional: Show a toast for confirmation
-                        Toast.makeText(WebPage.this, "Logged out successfully", Toast.LENGTH_LONG).show();
-                    } else {
-                        // Handle unsuccessful logout
-                        if (response.code() == 401) {
-                            // Session expired, inform the user
-                            Toast.makeText(WebPage.this, "Session expired. Please log in again.", Toast.LENGTH_LONG).show();
-                            // Optionally, redirect to login
-                            Intent intent = new Intent(WebPage.this, LoginPage.class);
-                            startActivity(intent);
-                            finish(); // Call finish to close the current activity
-                        } else {
-                            Toast.makeText(WebPage.this, "Logout failed: " + response.message(), Toast.LENGTH_LONG).show();
-                        }
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<ResponseBody> call, Throwable t) {
-                    // Handle error
-                    Toast.makeText(WebPage.this, "Logout Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
-                }
-            });
-        } else {
-            // Token is null, handle error
-            Toast.makeText(WebPage.this, "You are not logged in", Toast.LENGTH_LONG).show();
         }
     }
 }

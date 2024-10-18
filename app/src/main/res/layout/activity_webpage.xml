@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="#F6F6F6"
     tools:context=".Activities.WebPage">
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="500dp"
@@ -100,12 +99,13 @@
         app:layout_constraintTop_toBottomOf="@id/tvLabel" />
 
     <TextView
+        android:id="@+id/textView5"
         android:layout_width="110dp"
         android:layout_height="20dp"
-        android:text="Recommended"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="290dp"
         android:fontFamily="@font/open_sans"
+        android:text="Recommended"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -127,93 +127,23 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ScrollView
-        android:layout_width="416dp"
-        android:layout_height="446dp"
+        android:layout_width="411dp"
+        android:layout_height="603dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_bookdisplay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <!-- Simple Text Box with TextView -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rectangle"
-                android:padding="16dp"
-                android:layout_margin="8dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/Author"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="This is a simple text box."
-                    android:textSize="18sp"
-                    android:textColor="@color/black" />
-                <TextView
-                    android:id="@+id/Booktitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="This is a simple text box."
-                    android:textSize="18sp"
-                    android:textColor="@color/black" />
-                <TextView
-                    android:id="@+id/Bookcopies"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="This is a simple text box."
-                    android:textSize="18sp"
-                    android:textColor="@color/black" />
-                <TextView
-                    android:id="@+id/Publisher"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="This is a simple text box."
-                    android:textSize="18sp"
-                    android:textColor="@color/black" />
-                <TextView
-                    android:id="@+id/Description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="This is a simple text box."
-                    android:textSize="18sp"
-                    android:textColor="@color/black" />
-                <TextView
-                    android:id="@+id/Bookcover"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="This is a simple text box."
-                    android:textSize="18sp"
-                    android:textColor="@color/black" />
-                <TextView
-                    android:id="@+id/Location"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="This is a simple text box."
-                    android:textSize="18sp"
-                    android:textColor="@color/black" />
-                <TextView
-                    android:id="@+id/Status"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="This is a simple text box."
-                    android:textSize="18sp"
-                    android:textColor="@color/black" />
-                <TextView
-                    android:id="@+id/Category"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="This is a simple text box."
-                    android:textSize="18sp"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-
-        </LinearLayout>
+            android:layout_marginTop="76dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
     </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

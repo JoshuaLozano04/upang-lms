@@ -1,11 +1,9 @@
 package com.upang.librarymanagementsystem.Api.Interfaces;
-import com.upang.librarymanagementsystem.Api.Model.Books;
-import com.upang.librarymanagementsystem.Api.Model.BooksResponse;
+import com.upang.librarymanagementsystem.Api.Model.BookDetailResponse;
+import com.upang.librarymanagementsystem.Api.Model.BookListResponse;
 import com.upang.librarymanagementsystem.Api.Model.Login;
 import com.upang.librarymanagementsystem.Api.Model.ProfileResponse;
 import com.upang.librarymanagementsystem.Api.Model.User;
-
-import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -15,6 +13,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface UserClient {
     @POST("login/")  // Correct endpoint for login
@@ -36,12 +35,12 @@ public interface UserClient {
             @Field("password") String password
     );
 
+    // Fetch all books
+    @GET("Books")
+    Call<BookListResponse> getBooks(@Header("Authorization") String token);
 
-    public interface BooksApiService {
+    @GET("Books/{id}")
+    Call<BookDetailResponse> getBookDetails(@Path("id") int id, @Header("Authorization") String token);
 
-        // Fetch all books
-        @GET("Books")
-        Call<List<Books>> getBooks();
-    }
 
 }

@@ -70,20 +70,19 @@
         android:id="@+id/textView"
         android:layout_width="300dp"
         android:layout_height="80dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="10dp"
-        android:textAlignment="center"
-        android:layout_marginBottom="500dp"
         android:fontFamily="@font/anek_malayalam"
         android:text="Or create a new account"
+        android:textAlignment="center"
         android:textColor="#5757FF"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/EtEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLabel"
-        app:layout_constraintVertical_bias="0.545" />
+        app:layout_constraintTop_toTopOf="@+id/tvLabel" />
 
     <EditText
         android:id="@+id/EtEmail"

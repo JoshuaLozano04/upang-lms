@@ -6,16 +6,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.BookDetails"
-    android:background="#F6F6F6">
+    android:background="@drawable/bg_img">
+
+
     <LinearLayout
-        android:background="@color/white"
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="130dp"
+        android:background="@color/white"
         android:backgroundTint="#137A63"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageButton
             android:layout_width="60dp"
@@ -27,9 +32,8 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="match_parent"
+            android:layout_width="278dp"
             android:layout_height="40dp"
-            android:background="#355E3B"
             android:layout_gravity="center"
             android:gravity="center"
             android:paddingLeft="20dp"
@@ -42,7 +46,6 @@
             tools:layout_editor_absoluteY="38dp" />
 
     </LinearLayout>
-
 
     <ScrollView
         android:scrollbars="none"
@@ -68,39 +71,38 @@
                 <ImageView
                     android:id="@+id/ivBookCover"
                     android:layout_width="177dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="211dp"
                     android:layout_gravity="center"
                     tools:layout_editor_absoluteX="75dp"
                     tools:layout_editor_absoluteY="157dp"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="230dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tvTitle"
                         android:layout_width="180dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:layout_margin="8dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="40dp"
                         android:background="#355E3B"
                         android:gravity="center"
                         android:text="TITLE"
                         android:textColor="@color/white" />
-
                     <TextView
                         android:id="@+id/tvAuthor"
                         android:layout_width="180dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:layout_margin="8dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
                         android:background="#355E3B"
-                        android:gravity="center"
-                        android:text="Authors"
+                        android:gravity="center_horizontal"
+                        android:text="AUTHOR"
                         android:textColor="@color/white" />
                 </LinearLayout>
+
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/linearLayout4"
@@ -131,7 +133,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#355E3B"
+                    android:background="#D9D9D9"
                     android:orientation="vertical">
 
                     <TextView
@@ -141,7 +143,7 @@
                         android:ellipsize="end"
                         android:maxLines="3"
                         android:text="This is a sample description that will expand and collapse when you click Show More or Show Less."
-                        android:textColor="@android:color/white"
+                        android:textColor="@android:color/black"
                         android:textSize="16sp" />
 
                     <TextView
@@ -153,8 +155,9 @@
                         android:focusable="true"
                         android:paddingTop="8dp"
                         android:text="Show More"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
+
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -165,17 +168,17 @@
 
                 <TextView
                     android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="31dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/textview_circle"
                     android:gravity="center"
                     android:text="Subject"
-                    android:background="@drawable/textview_circle"
-                    android:textColor="@color/white"
-                    android:layout_margin="8dp"/>
+                    android:textColor="@color/white" />
 
                 <TextView
                     android:id="@+id/tvSubject"
-                    android:layout_width="370dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="380dp"
+                    android:layout_height="38dp"
                     android:layout_margin="8dp"
                     android:background="@drawable/textview_circle_grey"
                     android:gravity="center"
@@ -184,17 +187,17 @@
 
                 <TextView
                     android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="31dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/textview_circle"
                     android:gravity="center"
                     android:text="Location"
-                    android:background="@drawable/textview_circle"
-                    android:textColor="@color/white"
-                    android:layout_margin="8dp"/>
+                    android:textColor="@color/white" />
 
                 <TextView
                     android:id="@+id/tvLocation"
-                    android:layout_width="370dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="380dp"
+                    android:layout_height="36dp"
                     android:layout_margin="8dp"
                     android:background="@drawable/textview_circle_grey"
                     android:gravity="center"
@@ -203,7 +206,7 @@
 
                 <TextView
                     android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="31dp"
                     android:gravity="center"
                     android:text="Copies"
                     android:background="@drawable/textview_circle"
@@ -212,8 +215,8 @@
 
                 <TextView
                     android:id="@+id/tvCopies"
-                    android:layout_width="370dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="380dp"
+                    android:layout_height="36dp"
                     android:layout_margin="8dp"
                     android:background="@drawable/textview_circle_grey"
                     android:gravity="center"
@@ -222,7 +225,7 @@
 
                 <TextView
                     android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="31dp"
                     android:gravity="center"
                     android:text="Publisher"
                     android:background="@drawable/textview_circle"
@@ -231,8 +234,8 @@
 
                 <TextView
                     android:id="@+id/tvPublisher"
-                    android:layout_width="370dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="380dp"
+                    android:layout_height="36dp"
                     android:layout_margin="8dp"
                     android:background="@drawable/textview_circle_grey"
                     android:gravity="center"
@@ -241,7 +244,7 @@
 
                 <TextView
                     android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="31dp"
                     android:gravity="center"
                     android:text="Status"
                     android:background="@drawable/textview_circle"
@@ -250,8 +253,8 @@
 
                 <TextView
                     android:id="@+id/tvStatus"
-                    android:layout_width="370dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="380dp"
+                    android:layout_height="36dp"
                     android:layout_margin="8dp"
                     android:background="@drawable/textview_circle_grey"
                     android:gravity="center"

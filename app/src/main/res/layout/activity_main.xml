@@ -5,27 +5,18 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f2f3f4"
-    tools:context=".Activities.MainActivity">
+    android:background="@drawable/bg_img"
+    tools:context=".Activities.MainActivity"
+    >
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="500dp"
-        android:layout_height="225dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/rectangle"
-        android:orientation="vertical"
-        android:padding="5dp"
-        app:layout_constraintBottom_toBottomOf="@id/imageView1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
 
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="290dp"
         android:layout_height="226dp"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/iconvisible" />
@@ -34,17 +25,17 @@
         android:id="@+id/textView1"
         android:layout_width="343dp"
         android:layout_height="60dp"
-        android:layout_marginTop="50dp"
         android:fontFamily="@font/roboto_serif_bold"
         android:text="Meet LMS,"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.455"
+        app:layout_constraintHorizontal_bias="0.235"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView1" />
+        app:layout_constraintTop_toTopOf="@+id/imageView1"
+        app:layout_constraintVertical_bias="0.337" />
 
     <TextView
         android:id="@+id/textView2"
@@ -53,12 +44,12 @@
         android:layout_marginTop="1px"
         android:fontFamily="@font/roboto_serif_bold"
         android:text="The Library"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintHorizontal_bias="0.225"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
@@ -68,12 +59,12 @@
         android:layout_height="60dp"
         android:fontFamily="@font/roboto_serif_bold"
         android:text="Management"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.225"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -81,15 +72,15 @@
         android:id="@+id/textView4"
         android:layout_width="340dp"
         android:layout_height="60dp"
-        android:fontFamily="@font/roboto_serif_bold"
         android:layout_marginBottom="50dp"
+        android:fontFamily="@font/roboto_serif_bold"
         android:text="System"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnClick"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.225"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 

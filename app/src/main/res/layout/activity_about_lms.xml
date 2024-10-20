@@ -10,13 +10,16 @@
 
 
     <LinearLayout
-        android:background="#F6F6F6"
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="#F6F6F6"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.053">
 
         <ImageButton
             android:id="@+id/btnBackAboutLMS"
@@ -28,12 +31,12 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="333dp"
-            android:layout_height="match_parent"
+            android:layout_width="345dp"
+            android:layout_height="50dp"
             android:background="@drawable/textview_left_format"
-            android:gravity="left"
+            android:gravity=""
             android:paddingLeft="20dp"
-            android:paddingTop="6dp"
+            android:paddingTop="5dp"
             android:text="About LMS"
             android:textColor="@color/white"
             android:textSize="25dp"
@@ -63,13 +66,14 @@
                 android:layout_width="304dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/textview_right_format"
                 android:gravity="left"
                 android:padding="20dp"
                 android:text="@string/AbtLms"
                 android:textColor="@color/white"
-                android:textSize="16sp"
-                android:layout_marginBottom="8dp" />
+                android:textSize="16sp" />
+
             <Space
                 android:layout_width="30dp"
                 android:layout_height="30dp"/>

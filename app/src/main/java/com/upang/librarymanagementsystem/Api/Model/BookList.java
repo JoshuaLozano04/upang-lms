@@ -9,8 +9,7 @@ public class BookList {
     private String bookTitle;
 
     @SerializedName("Bookcover")
-    private String bookCover;
-
+    private String Bookcover;
     private String Author;
     private String Bookcopies;
     private String Publisher;
@@ -37,11 +36,11 @@ public class BookList {
     }
 
     public String getBookCover() {
-        return bookCover;
+        return Bookcover;
     }
 
-    public void setBookCover(String bookCover) {
-        this.bookCover = bookCover;
+    public void setBookCover(String Bookcover) {
+        this.Bookcover = Bookcover;
     }
 
     public String getAuthor() {

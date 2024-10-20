@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -28,6 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LoginPage extends AppCompatActivity {
     private EditText etEmail, etPassword;
     private Button btnLogin;
+    TextView btnCreateNA;
 
     Retrofit.Builder builder = new Retrofit.Builder()
             .baseUrl("https://decent-hardy-mastodon.ngrok-free.app/api/")
@@ -69,6 +71,17 @@ public class LoginPage extends AppCompatActivity {
             Log.d("LoginButton", "Login button clicked");
             login();
         });
+
+        btnCreateNA = findViewById(R.id.btnCreateNA);
+
+        btnCreateNA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginPage.this, SignUp.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void login() {
@@ -91,10 +104,8 @@ public class LoginPage extends AppCompatActivity {
                     startActivity(intent);
                     finish();
 
-                    // Show a toast for confirmation
-                    Toast.makeText(LoginPage.this, "Token saved successfully", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(LoginPage.this, "Error: Could not log in", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginPage.this, "Error: Could not log in:" + response.message(), Toast.LENGTH_LONG).show();
                 }
             }
 

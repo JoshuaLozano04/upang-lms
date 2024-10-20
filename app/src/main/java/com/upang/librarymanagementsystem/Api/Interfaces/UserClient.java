@@ -43,4 +43,8 @@ public interface UserClient {
     Call<BookDetailResponse> getBookDetails(@Path("id") int id, @Header("Authorization") String token);
 
 
+    @GET("storage/{imagePath}")
+    Call<ResponseBody> getBookCover(@Path("imagePath") String imagePath, @Header("Authorization") String token);
+
+
 }

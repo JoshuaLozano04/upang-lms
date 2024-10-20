@@ -16,8 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.upang.librarymanagementsystem.Activities.BookDetails;
-import com.upang.librarymanagementsystem.Api.Client.RetrofitClient;
-import com.upang.librarymanagementsystem.Api.Interfaces.UserClient;
 import com.upang.librarymanagementsystem.Api.Model.BookList;
 import com.upang.librarymanagementsystem.R;
 
@@ -33,15 +31,22 @@ import okhttp3.Response;
 
 
 public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHolder> {
+
+    //Initialize
     Context context;
     private ArrayList<BookList> bookLists;
     private ArrayList<BookList> filteredBookLists;
     private OkHttpClient client = new OkHttpClient();
+
+
     public RvBooksAdapter(Context context, ArrayList<BookList> arrayList){
         this.context = context;
         this.bookLists = arrayList;
         this.filteredBookLists = new ArrayList<>(arrayList);
+        notifyDataSetChanged();
     }
+
+
     @NonNull
     @Override
     public RvBooksAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -49,9 +54,10 @@ public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHold
         return new ViewHolder(view);
     }
 
+    //Binds data to Recycler View
     @Override
     public void onBindViewHolder(@NonNull RvBooksAdapter.ViewHolder holder, int position) {
-        holder.bind(filteredBookLists.get(position)); // Bind filtered data
+        holder.bind(filteredBookLists.get(position));
     }
 
     @Override
@@ -59,6 +65,31 @@ public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHold
         return filteredBookLists.size();
     }
 
+
+    public void filterBooksByCategory(String category) {
+        if (category.equals("All")) {
+            filteredBookLists = new ArrayList<>(bookLists);
+        } else {
+            ArrayList<BookList> filteredBooks = new ArrayList<>();
+            for (BookList book : bookLists) {
+                if (book.getCategory().equalsIgnoreCase(category)) {
+                    filteredBooks.add(book);
+                }
+            }
+            filteredBookLists = filteredBooks;
+        }
+        notifyDataSetChanged();
+    }
+    //Shows the filtered books
+    public void updateBookLists(ArrayList<BookList> newBookLists) {
+        this.bookLists.clear();
+        this.bookLists.addAll(newBookLists);
+        this.filteredBookLists.clear();
+        this.filteredBookLists.addAll(newBookLists);
+        notifyDataSetChanged();
+    }
+
+    //Gets filter
     public Filter getFilter() {
         return new Filter() {
             @Override
@@ -66,7 +97,8 @@ public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHold
                 String query = constraint.toString().toLowerCase().trim();
                 FilterResults results = new FilterResults();
 
-                if (query.isBlank()) {
+                //Checks if searchbar is empty
+                if (query.isEmpty()) {
                     results.values = new ArrayList<>(bookLists); // Show all books when query is empty
                 } else {
                     List<BookList> filteredList = new ArrayList<>();
@@ -94,18 +126,21 @@ public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView author,title;
         private ImageView cover;
+
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             author = itemView.findViewById(R.id.book_author);
             title = itemView.findViewById(R.id.book_title);
             cover = itemView.findViewById(R.id.iv_cover);
 
+            //Makes the books interactable
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     int position = getAdapterPosition();
                     if (position != RecyclerView.NO_POSITION) {
-                        BookList clickedBook = bookLists.get(position);
+                        BookList clickedBook = filteredBookLists.get(position);
                         int bookId = clickedBook.getId(); // Get the book ID
 
                         // Store the book ID in SharedPreferences
@@ -122,13 +157,15 @@ public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHold
             });
 
         }
+        //Binds data to holder
         public void bind(BookList bookList){
             author.setText(bookList.getAuthor());
             title.setText(bookList.getBookTitle());
-                    String bookCoverPath = "https://top-stable-octopus.ngrok-free.app" + bookList.getBookCover();
+            String bookCoverPath = "https://top-stable-octopus.ngrok-free.app" + bookList.getBookCover();
             fetchImage(bookCoverPath, cover);
         }
     }
+    //Gets book image
     private void fetchImage(String imageUrl, ImageView imageView) {
         Request request = new Request.Builder()
                 .url(imageUrl)

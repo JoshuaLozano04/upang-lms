@@ -35,13 +35,5 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, SignUp.class);
             startActivity(intent);
         });
-
-
-        btnClick2 = findViewById(R.id.btnClick2);
-        btnClick2.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, LoginPage.class);
-            startActivity(intent);
-        });
-
     }
 }

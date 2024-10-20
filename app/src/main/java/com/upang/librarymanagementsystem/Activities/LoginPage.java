@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -28,6 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LoginPage extends AppCompatActivity {
     private EditText etEmail, etPassword;
     private Button btnLogin;
+    TextView btnCreateNA;
 
     Retrofit.Builder builder = new Retrofit.Builder()
             .baseUrl("https://top-stable-octopus.ngrok-free.app/api/")
@@ -68,6 +70,17 @@ public class LoginPage extends AppCompatActivity {
         btnLogin.setOnClickListener(view -> {
             Log.d("LoginButton", "Login button clicked");
             login();
+        });
+
+        btnCreateNA = findViewById(R.id.btnCreateNA);
+
+        btnCreateNA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginPage.this, SignUp.class);
+                startActivity(intent);
+                finish();
+            }
         });
     }
 

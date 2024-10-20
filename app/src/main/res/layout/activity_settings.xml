@@ -5,15 +5,16 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".Activities.Settings">
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="70sp"
-        android:layout_marginTop="52dp"
         android:layout_marginBottom="8dp"
         android:background="#137A63"
+        android:layout_marginTop="30dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,6 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5sp"
             android:padding="5sp"
+            android:textColor="@color/black"
             android:text="General"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -66,8 +68,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5sp"
             android:padding="5sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/open_sans"
             android:text="Edit Profile"
-            android:textSize="16sp" />
+            android:textSize="17sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -81,6 +85,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5sp"
             android:padding="5sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/open_sans"
             android:text="Change Password"
             android:textSize="16sp" />
 
@@ -109,6 +115,7 @@
             android:layout_marginBottom="5sp"
             android:padding="5sp"
             android:text="Others"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -118,6 +125,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5sp"
             android:padding="5sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/open_sans"
             android:text="Terms and Condition"
             android:textSize="16sp" />
 
@@ -133,6 +142,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5sp"
             android:padding="5sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/open_sans"
             android:text="Privacy Policy"
             android:textSize="16sp" />
 
@@ -148,6 +159,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5sp"
             android:padding="5sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/open_sans"
             android:text="About LMS"
             android:textSize="16sp" />
 
@@ -163,6 +176,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5sp"
             android:padding="5sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/open_sans"
             android:text="Log out"
             android:textSize="16sp" />
 

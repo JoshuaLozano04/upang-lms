@@ -1,24 +1,39 @@
 package com.upang.librarymanagementsystem.Activities;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.model.GlideUrl;
+import com.bumptech.glide.load.model.LazyHeaders;
 import com.upang.librarymanagementsystem.Api.Client.RetrofitClient;
 import com.upang.librarymanagementsystem.Api.Interfaces.UserClient;
 import com.upang.librarymanagementsystem.Api.Model.BookDetailResponse;
 import com.upang.librarymanagementsystem.Api.Model.BookList;
 import com.upang.librarymanagementsystem.R;
 
+import java.io.IOException;
+import java.io.InputStream;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,6 +42,8 @@ public class BookDetails extends AppCompatActivity {
     private TextView tvTitle, tvAuthor, tvDescription, tvSubject, tvLocation, tvCopies, tvPublisher, tvStatus; // Add other TextViews as needed
     private ImageView bookCover; // For displaying the book cover
     private UserClient userClient;
+    private ImageButton btnBackWebpage;
+
     private int bookId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +66,22 @@ public class BookDetails extends AppCompatActivity {
         tvCopies = findViewById(R.id.tvCopies);
         tvPublisher = findViewById(R.id.tvPublisher);
         tvStatus = findViewById(R.id.tvStatus);
+        bookCover = findViewById(R.id.ivBookCover);
+        btnBackWebpage = findViewById(R.id.btnBackWebpage);
+
+        btnBackWebpage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(BookDetails.this, WebPage.class);
+                startActivity(intent);
+                finish();
+                SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.remove("selected_book_id");
+                editor.apply();
+
+            }
+        });
         userClient = RetrofitClient.getInstance(getApplicationContext()).getApi();
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
@@ -88,6 +121,44 @@ public class BookDetails extends AppCompatActivity {
         }
 
     }
+    private OkHttpClient client = new OkHttpClient();
+
+    private void fetchImage(String imageUrl) {
+        Request request = new Request.Builder()
+                .url(imageUrl)
+                .addHeader("Authorization", "Bearer " + getToken())
+                .build();
+
+        client.newCall(request).enqueue(new okhttp3.Callback() {
+            @Override
+            public void onFailure(@NonNull okhttp3.Call call, @NonNull IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(@NonNull okhttp3.Call call, @NonNull okhttp3.Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    byte[] imageData = response.body().bytes();
+
+
+                    runOnUiThread(() -> {
+                        Glide.with(BookDetails.this)
+                                .load(imageData)
+                                .into(bookCover);
+                    });
+                } else {
+
+                }
+            }
+        });
+    }
+
+    // Method to get the token
+    private String getToken() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        return sharedPreferences.getString("auth_token", null);
+    }
+
     private void displayBookDetails(BookList book) {
         tvTitle.setText(book.getBookTitle());
         tvAuthor.setText(book.getAuthor());
@@ -97,5 +168,8 @@ public class BookDetails extends AppCompatActivity {
         tvCopies.setText(book.getBookcopies());
         tvSubject.setText(book.getCategory());
         tvLocation.setText(book.getLocation());
+        String bookCoverPath = "https://top-stable-octopus.ngrok-free.app" + book.getBookCover();
+        fetchImage(bookCoverPath);
+
     }
 }

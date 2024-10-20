@@ -1,5 +1,6 @@
 package com.upang.librarymanagementsystem.Api.Adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,23 +16,32 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.upang.librarymanagementsystem.Activities.BookDetails;
+import com.upang.librarymanagementsystem.Api.Client.RetrofitClient;
+import com.upang.librarymanagementsystem.Api.Interfaces.UserClient;
 import com.upang.librarymanagementsystem.Api.Model.BookList;
 import com.upang.librarymanagementsystem.R;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHolder> {
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
+
+public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHolder> {
     Context context;
     private ArrayList<BookList> bookLists;
     private ArrayList<BookList> filteredBookLists;
+    private OkHttpClient client = new OkHttpClient();
     public RvBooksAdapter(Context context, ArrayList<BookList> arrayList){
         this.context = context;
         this.bookLists = arrayList;
         this.filteredBookLists = new ArrayList<>(arrayList);
     }
-
     @NonNull
     @Override
     public RvBooksAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -56,7 +66,7 @@ public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHold
                 String query = constraint.toString().toLowerCase().trim();
                 FilterResults results = new FilterResults();
 
-                if (query.isEmpty()) {
+                if (query.isBlank()) {
                     results.values = new ArrayList<>(bookLists); // Show all books when query is empty
                 } else {
                     List<BookList> filteredList = new ArrayList<>();
@@ -115,7 +125,46 @@ public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHold
         public void bind(BookList bookList){
             author.setText(bookList.getAuthor());
             title.setText(bookList.getBookTitle());
-            Glide.with(context).load(bookList.getBookCover()).into(cover);
+                    String bookCoverPath = "https://top-stable-octopus.ngrok-free.app" + bookList.getBookCover();
+            fetchImage(bookCoverPath, cover);
         }
     }
+    private void fetchImage(String imageUrl, ImageView imageView) {
+        Request request = new Request.Builder()
+                .url(imageUrl)
+                .addHeader("Authorization", "Bearer " + getToken()) // Add your token here
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    byte[] imageData = response.body().bytes(); // Get the image data
+
+                    // Load the image into the ImageView using Glide
+                    ((Activity) context).runOnUiThread(() -> {
+                        Glide.with(context)
+                                .load(imageData)
+                                .into(imageView);
+                    });
+                } else {
+                    // Handle the error response
+                    ((Activity) context).runOnUiThread(() -> {
+
+                    });
+                }
+            }
+        });
+    }
+
+    private String getToken() {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE);
+        return sharedPreferences.getString("auth_token", null);
+    }
 }
+

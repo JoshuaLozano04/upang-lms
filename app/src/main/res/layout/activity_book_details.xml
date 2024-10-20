@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
+            android:id="@+id/btnBackWebpage"
             android:layout_width="60dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
@@ -53,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
             android:orientation="vertical"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="100dp">
@@ -67,8 +68,8 @@
 
                 <ImageView
                     android:id="@+id/ivBookCover"
-                    android:layout_width="177dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="208dp"
+                    android:layout_height="300dp"
                     android:layout_gravity="center"
                     tools:layout_editor_absoluteX="75dp"
                     tools:layout_editor_absoluteY="157dp"
@@ -77,7 +78,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    >
 
                     <TextView
                         android:id="@+id/tvTitle"
@@ -144,17 +146,7 @@
                         android:textColor="@android:color/white"
                         android:textSize="16sp" />
 
-                    <TextView
-                        android:id="@+id/btnToggle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:layout_gravity="right"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:paddingTop="8dp"
-                        android:text="Show More"
-                        android:textColor="@color/white"
-                        android:textStyle="bold" />
+
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -167,7 +159,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Subject"
+                    android:text="Category"
                     android:background="@drawable/textview_circle"
                     android:textColor="@color/white"
                     android:layout_margin="8dp"/>
@@ -178,7 +170,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
                     android:background="@drawable/textview_circle_grey"
-                    android:gravity="center"
+                    android:gravity="left"
                     android:text=""
                     android:textColor="@color/black" />
 
@@ -197,7 +189,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
                     android:background="@drawable/textview_circle_grey"
-                    android:gravity="center"
+                    android:gravity="left"
                     android:text=""
                     android:textColor="@color/black" />
 
@@ -216,7 +208,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
                     android:background="@drawable/textview_circle_grey"
-                    android:gravity="center"
+                    android:gravity="left"
                     android:text=""
                     android:textColor="@color/black" />
 
@@ -235,7 +227,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
                     android:background="@drawable/textview_circle_grey"
-                    android:gravity="center"
+                    android:gravity="left"
                     android:text=""
                     android:textColor="@color/black" />
 
@@ -254,7 +246,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
                     android:background="@drawable/textview_circle_grey"
-                    android:gravity="center"
+                    android:gravity="left"
                     android:text=""
                     android:textColor="@color/black" />
 

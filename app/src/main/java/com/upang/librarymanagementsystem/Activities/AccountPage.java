@@ -97,6 +97,7 @@ public class AccountPage extends AppCompatActivity {
                         ProfileResponse profileResponse = response.body();
                         User user = profileResponse.getData();
 
+
                         if (user != null) {
                             String fullName = capitalizeFirstLetter(user.getFirstname()) + " " + capitalizeFirstLetter(user.getLastname());
                             Log.d("Profile", "User Profile: " + fullName);
@@ -104,6 +105,8 @@ public class AccountPage extends AppCompatActivity {
                             Name.setText(fullName);
                             Email.setText(user.getEmail());
                             Id.setText(String.valueOf(user.getId()));
+
+
 
 
                         } else {

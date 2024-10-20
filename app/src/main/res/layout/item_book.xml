@@ -3,30 +3,39 @@
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="5dp"
-    app:cardElevation="5dp"
-    android:layout_margin="5dp"
-    android:padding="5dp"
-    android:clickable="true">
+    app:cardCornerRadius="8dp"
+    android:layout_margin="8dp"
+    android:background="@android:color/transparent"
+    android:clickable="true"
+    app:cardElevation="10dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="8dp"
-        android:background="@color/green"
+        android:background="@color/grayish_transparent"
         android:focusable="true">
-
         <ImageView
             android:id="@+id/iv_cover"
-            android:layout_width="100sp"
-            android:layout_height="150sp"/>
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:background="@drawable/rounded_border"
+            android:scaleType="centerCrop"
+            android:clipToOutline="true"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@android:color/transparent"
+            android:layout_gravity="center">
             <TextView
                 android:id="@+id/book_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Book Title"
-                android:layout_gravity=""
+                android:gravity="center"
+                android:background="@android:color/transparent"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -35,9 +44,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
+                android:gravity="center"
+                android:background="@android:color/transparent"
                 android:text="Book Author"
-                android:textColor="@color/gray" />
-
+                android:textColor="@color/black" />
+        </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
 

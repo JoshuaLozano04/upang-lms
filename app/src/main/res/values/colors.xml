@@ -4,4 +4,15 @@
     <color name="white">#FFFFFFFF</color>
     <color name="green">#4CAF50</color>
     <color name="gray">#808080</color>
+    <!-- Fully transparent color -->
+    <color name="transparent">#00000000</color>
+
+    <!-- Semi-transparent black (50% opacity) -->
+    <color name="semi_transparent_black">#80000000</color>
+
+    <!-- Semi-transparent white (70% opacity) -->
+    <color name="semi_transparent_white">#B3FFFFFF</color>
+
+    <!-- Grayish transparent (60% opacity) -->
+    <color name="grayish_transparent">#99AAAAAA</color>
 </resources>

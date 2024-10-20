@@ -6,19 +6,22 @@ import java.util.List;
 
 public class ProfileResponse {
     private boolean success;
-    private List<User> data;
+    private User data; // Change this to User instead of List<User>
 
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
     public boolean isSuccess() {
         return success;
     }
 
-    public List<User> getData() {
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    public User getData() { // Change return type to User
         return data;
     }
-    public void setData(List<User> data) {
+
+    public void setData(User data) { // Change parameter type to User
         this.data = data;
     }
+
 }

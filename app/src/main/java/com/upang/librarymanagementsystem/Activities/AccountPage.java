@@ -1,11 +1,14 @@
 package com.upang.librarymanagementsystem.Activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,12 +16,23 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.upang.librarymanagementsystem.Api.Client.RetrofitClient;
+import com.upang.librarymanagementsystem.Api.Interfaces.UserClient;
+import com.upang.librarymanagementsystem.Api.Model.ProfileResponse;
+import com.upang.librarymanagementsystem.Api.Model.User;
 import com.upang.librarymanagementsystem.R;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AccountPage extends AppCompatActivity {
     ImageButton btnBackAcc;
     ImageButton btnQR;
     ImageButton btnCog;
+    TextView Name, Email, Id;
+    private UserClient userClient;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +43,11 @@ public class AccountPage extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        userClient = RetrofitClient.getInstance(getApplicationContext()).getApi();
+
+        Name = findViewById(R.id.tvName);
+        Email = findViewById(R.id.tvEmail);
+        Id = findViewById(R.id.tvIDnum);
 
         btnBackAcc = findViewById(R.id.btnBackAcc);
 
@@ -62,5 +81,53 @@ public class AccountPage extends AppCompatActivity {
                 finish();
             }
         });
+
+        fetchProfile();
+    }
+    private void fetchProfile(){
+        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        String token = sharedPreferences.getString("auth_token", null);
+
+        if (token != null) {
+            Call<ProfileResponse> call = userClient.getProfile("Bearer " + token);
+            call.enqueue(new Callback<ProfileResponse>() {
+                @Override
+                public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
+                    if (response.isSuccessful() && response.body() != null) {
+                        ProfileResponse profileResponse = response.body();
+                        User user = profileResponse.getData();
+
+                        if (user != null) {
+                            String fullName = capitalizeFirstLetter(user.getFirstname()) + " " + capitalizeFirstLetter(user.getLastname());
+                            Log.d("Profile", "User Profile: " + fullName);
+
+                            Name.setText(fullName);
+                            Email.setText(user.getEmail());
+                            Id.setText(String.valueOf(user.getId()));
+
+
+                        } else {
+                            Log.d("Profile", "No user data found");
+                        }
+                    } else {
+                        Log.d("Profile", "Failed to fetch user profile: " + response.message());
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ProfileResponse> call, Throwable throwable) {
+                    Log.d("Profile", "Error: " + throwable.getMessage());
+                }
+            });
+        } else {
+            Log.d("Profile", "Token is null, cannot fetch profile");
+        }
+
+    }
+    private static String capitalizeFirstLetter(String name) {
+        if (name == null || name.isEmpty()) {
+            return name;
+        }
+        return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
     }
 }

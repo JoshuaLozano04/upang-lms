@@ -164,10 +164,19 @@ public class BookDetails extends AppCompatActivity {
         tvAuthor.setText(book.getAuthor());
         tvDescription.setText(book.getDescription());
         tvPublisher.setText(book.getPublisher());
-        tvStatus.setText(book.getStatus());
         tvCopies.setText(book.getBookcopies());
         tvSubject.setText(book.getCategory());
         tvLocation.setText(book.getLocation());
+        if (book.getStatus() != null) {
+            int statusValue = Integer.parseInt(book.getStatus());
+            if (statusValue == 1) {
+                tvStatus.setText("Available");
+            } else {
+                tvStatus.setText("Not Available");
+            }
+        } else {
+            tvStatus.setText("Status not available");
+        }
         String bookCoverPath = "https://top-stable-octopus.ngrok-free.app" + book.getBookCover();
         fetchImage(bookCoverPath);
 

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_img"
+    android:background="@drawable/blur"
     tools:context=".Activities.WelcomePage">
 
 
@@ -13,10 +14,12 @@
         android:id="@+id/imageView1"
         android:layout_width="291dp"
         android:layout_height="226dp"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/iconvisible" />
+        app:srcCompat="@drawable/iconvisible2" />
 
     <TextView
         android:id="@+id/textView1"
@@ -74,9 +77,9 @@
         android:id="@+id/btnClick"
         android:layout_width="270dp"
         android:layout_height="60dp"
-        android:backgroundTint="#137b64"
+        android:backgroundTint="#C27B3C"
         android:layout_marginTop="30dp"
-        android:fontFamily="@font/roboto_serif_semibold"
+        android:fontFamily="@font/open_sans"
         android:text="Continue"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -13,7 +13,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#F6F6F6"
+        android:background="@drawable/hudbendable"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -25,18 +25,17 @@
             android:id="@+id/btnBackAboutLMS"
             android:layout_width="64dp"
             android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:contentDescription="test"
-            android:src="@drawable/arrow_back_black" />
+            android:background="@drawable/arrow"
+            android:contentDescription="test" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="345dp"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:background="@drawable/textview_left_format"
-            android:gravity=""
-            android:paddingLeft="20dp"
-            android:paddingTop="5dp"
+            android:fontFamily="@font/assistant_extrabold"
+            android:gravity="center"
+
             android:text="About LMS"
             android:textColor="@color/white"
             android:textSize="25dp"

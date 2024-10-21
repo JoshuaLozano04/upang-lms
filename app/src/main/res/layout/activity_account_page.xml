@@ -5,70 +5,52 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_img"
     tools:context=".Activities.AccountPage">
 
 
     <LinearLayout
         android:id="@+id/linearLayout6"
-        android:layout_width="415dp"
-        android:layout_height="250dp"
-        android:layout_marginBottom="670dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         android:background="@drawable/rectangle_bg_img"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.833" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/btnBackAcc"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="120dp"
-        android:contentDescription="@string/backbtn"
-        android:background="@drawable/arrow_back_"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout6"
-        app:layout_constraintEnd_toStartOf="@+id/imageView4"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout6"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="300dp"
+        android:layout_width="64dp"
         android:layout_height="140dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/iconvisible"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout6"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout6"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout6"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout6" />
+        android:background="@android:color/transparent"
+        android:contentDescription="test"
+        android:src="@drawable/arrow_back_black" />
 
     <ImageButton
         android:id="@+id/btnQR"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="240dp"
-        android:layout_marginBottom="75.5dp"
+        android:layout_marginStart="250dp"
         android:background="@drawable/baseline_qr_code"
         android:contentDescription="ImageButton"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout6"
         app:layout_constraintEnd_toStartOf="@+id/btnCog"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout6" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/btnCog"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="120dp"
         android:background="@drawable/baseline_settings"
         android:contentDescription="Settings"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView

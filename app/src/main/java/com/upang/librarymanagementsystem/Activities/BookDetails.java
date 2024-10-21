@@ -177,7 +177,7 @@ public class BookDetails extends AppCompatActivity {
         } else {
             tvStatus.setText("Status not available");
         }
-        String bookCoverPath = "https://top-stable-octopus.ngrok-free.app" + book.getBookCover();
+        String bookCoverPath = "https://decent-hardy-mastodon.ngrok-free.app" + book.getBookCover();
         fetchImage(bookCoverPath);
 
     }

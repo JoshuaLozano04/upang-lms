@@ -1,14 +1,19 @@
 package com.upang.librarymanagementsystem.Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.PopupMenu;
+import android.widget.PopupWindow;
 import android.widget.SearchView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 
 import androidx.activity.EdgeToEdge;
@@ -41,7 +46,7 @@ public class WebPage extends AppCompatActivity {
     private RecyclerView rv_bookdisplay;
     private RvBooksAdapter rvBooksAdapter;
     private ArrayList<BookList> bookLists;
-
+    private TextView category_all, category_horror, category_criminology;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,28 +108,45 @@ public class WebPage extends AppCompatActivity {
     }
 
     //Button dropdown
-    private void showPopupMenu(View view) {
-        PopupMenu popupMenu = new PopupMenu(this, view);
-        popupMenu.getMenuInflater().inflate(R.menu.category_menu, popupMenu.getMenu());
+    private void showPopupMenu(View anchorView) {
+        // Inflate the custom menu layout
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View popupView = inflater.inflate(R.layout.custom_popup_menu, null);
 
-        popupMenu.setOnMenuItemClickListener(item -> {
-            if (item.getItemId() == R.id.category_all) {
-                rvBooksAdapter.filterBooksByCategory("All");
-                return true;
-            } else if (item.getItemId() == R.id.category_horror) {
-                rvBooksAdapter.filterBooksByCategory("Horror");
-                return true;
-            } else if (item.getItemId() == R.id.category_criminology) {
-                rvBooksAdapter.filterBooksByCategory("Criminology");
-                return true;
-            } else {
-                return false;
-            }
+        // Create the PopupWindow
+        final PopupWindow popupWindow = new PopupWindow(popupView,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                true);
+
+        // Set background for the PopupWindow
+        popupWindow.setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        popupWindow.setElevation(10);
+
+        // Set up click listeners for each category
+        TextView categoryAll = popupView.findViewById(R.id.category_all);
+        TextView categoryHorror = popupView.findViewById(R.id.category_horror);
+        TextView categoryCriminology = popupView.findViewById(R.id.category_criminology);
+
+        categoryAll.setOnClickListener(v -> {
+            rvBooksAdapter.filterBooksByCategory("All");
+            popupWindow.dismiss();
         });
 
-        // Show the menu
-        popupMenu.show();
+        categoryHorror.setOnClickListener(v -> {
+            rvBooksAdapter.filterBooksByCategory("Horror");
+            popupWindow.dismiss();
+        });
+
+        categoryCriminology.setOnClickListener(v -> {
+            rvBooksAdapter.filterBooksByCategory("Criminology");
+            popupWindow.dismiss();
+        });
+
+        // Show the PopupWindow at the desired location (anchored to the view)
+        popupWindow.showAsDropDown(anchorView, 0, 0);
     }
+
     //Gets book data
     private void fetchBooks(){
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);

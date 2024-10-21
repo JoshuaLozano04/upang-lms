@@ -58,6 +58,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".Activities.ForgotPassword"
+            android:exported="true"/>
+        <activity
             android:name=".Activities.CreateNewPassword"
             android:exported="true"/>
         <activity

@@ -12,6 +12,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginBottom="850dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +31,7 @@
 
         <TextView
             android:id="@+id/textView1"
-            android:layout_width="345dp"
+            android:layout_width="348dp"
             android:layout_height="50dp"
             android:background="@drawable/textview_left_format"
             android:gravity="left"

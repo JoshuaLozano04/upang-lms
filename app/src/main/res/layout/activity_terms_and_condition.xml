@@ -12,12 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#F6F6F6"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.059">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
             android:id="@+id/btnBackTerms"
@@ -44,9 +43,10 @@
     </LinearLayout>
 
     <ScrollView
-        android:background="@color/white"
+        android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,141 +63,149 @@
                 android:layout_width="304dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/textview_right_format"
                 android:gravity="left"
                 android:padding="20dp"
                 android:text="@string/toc"
                 android:textColor="@color/white"
-                android:textSize="16sp"
-                android:layout_marginBottom="8dp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="333dp"
                 android:layout_height="154dp"
                 android:layout_gravity="right"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/textview_left_format"
                 android:gravity="left"
-                android:textColor="@color/white"
                 android:padding="20dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/toc_1"/>
+                android:text="@string/toc_1"
+                android:textColor="@color/white" />
 
             <TextView
                 android:layout_width="333dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/textview_right_format"
                 android:gravity="left"
-                android:textColor="@color/white"
                 android:padding="20dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/toc_2"/>
+                android:text="@string/toc_2"
+                android:textColor="@color/white" />
+
             <TextView
                 android:layout_width="333dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/textview_left_format"
                 android:gravity="left"
-                android:textColor="@color/white"
                 android:padding="20dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/toc_3"/>
+                android:text="@string/toc_3"
+                android:textColor="@color/white" />
 
             <TextView
                 android:layout_width="333dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/textview_right_format"
                 android:gravity="left"
-                android:textColor="@color/white"
                 android:padding="20dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/toc_4"/>
+                android:text="@string/toc_4"
+                android:textColor="@color/white" />
+
             <TextView
                 android:layout_width="333dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/textview_left_format"
                 android:gravity="left"
-                android:textColor="@color/white"
                 android:padding="20dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/toc_5"/>
-            <TextView
-                android:layout_width="333dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:background="@drawable/textview_right_format"
-                android:gravity="left"
-                android:textColor="@color/white"
-                android:padding="20dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/toc_6"/>
-            <TextView
-                android:layout_width="333dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:background="@drawable/textview_left_format"
-                android:gravity="left"
-                android:textColor="@color/white"
-                android:padding="20dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/toc_7"/>
-            <TextView
-                android:layout_width="333dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:background="@drawable/textview_right_format"
-                android:gravity="left"
-                android:textColor="@color/white"
-                android:padding="20dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/toc_8"/>
-            <TextView
-                android:layout_width="333dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:background="@drawable/textview_left_format"
-                android:gravity="left"
-                android:textColor="@color/white"
-                android:padding="20dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/toc_9"/>
+                android:text="@string/toc_5"
+                android:textColor="@color/white" />
 
             <TextView
                 android:layout_width="333dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/textview_right_format"
                 android:gravity="left"
-                android:textColor="@color/white"
                 android:padding="20dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/toc_10"/>
+                android:text="@string/toc_6"
+                android:textColor="@color/white" />
+
             <TextView
                 android:layout_width="333dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/textview_left_format"
                 android:gravity="left"
-                android:textColor="@color/white"
                 android:padding="20dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/toc_11"/>
+                android:text="@string/toc_7"
+                android:textColor="@color/white" />
 
             <TextView
                 android:layout_width="333dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/textview_right_format"
                 android:gravity="left"
-                android:textColor="@color/white"
                 android:padding="20dp"
+                android:text="@string/toc_8"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
                 android:layout_marginBottom="8dp"
-                android:text="@string/toc_12"/>
+                android:background="@drawable/textview_left_format"
+                android:gravity="left"
+                android:padding="20dp"
+                android:text="@string/toc_9"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/textview_right_format"
+                android:gravity="left"
+                android:padding="20dp"
+                android:text="@string/toc_10"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/textview_left_format"
+                android:gravity="left"
+                android:padding="20dp"
+                android:text="@string/toc_11"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/textview_right_format"
+                android:gravity="left"
+                android:padding="20dp"
+                android:text="@string/toc_12"
+                android:textColor="@color/white" />
+
             <Space
                 android:layout_width="5dp"
-                android:layout_height="5dp"/>
+                android:layout_height="5dp" />
         </LinearLayout>
 
     </ScrollView>

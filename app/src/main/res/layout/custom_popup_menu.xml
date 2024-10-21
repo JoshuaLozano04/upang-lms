@@ -1,0 +1,48 @@
+<!-- res/layout/custom_popup_menu.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#C27B3C"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/menu_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Categories"
+        android:textColor="@color/white"
+        android:padding="8dp"
+        android:textStyle="bold"
+        android:layout_margin="8dp"/>
+
+    <TextView
+        android:id="@+id/category_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/menu_item_background_with_shadow"
+        android:padding="8dp"
+        android:text="All"
+        android:textColor="#000000"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/category_horror"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/menu_item_background_with_shadow"
+        android:padding="8dp"
+        android:text="Horror"
+        android:textColor="#000000"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/category_criminology"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/menu_item_background_with_shadow"
+        android:padding="8dp"
+        android:text="Criminology"
+        android:textColor="#000000"
+        android:layout_marginBottom="8dp"/>
+</LinearLayout>

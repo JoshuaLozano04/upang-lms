@@ -12,7 +12,7 @@
     <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:background="@drawable/rectangle_bg_img"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,11 +25,12 @@
     <ImageButton
         android:id="@+id/btnBackAcc"
         android:layout_width="67dp"
-        android:layout_height="82dp"
-        android:background="@android:color/transparent"
+        android:layout_height="52dp"
+        android:layout_marginEnd="172dp"
+        android:background="@drawable/arrow"
         android:contentDescription="test"
-        android:src="@drawable/arrow_back_black"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout6"
+        app:layout_constraintEnd_toStartOf="@id/btnQR"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout6" />
 
@@ -48,12 +49,11 @@
         android:id="@+id/btnCog"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="8dp"
         android:background="@drawable/baseline_settings"
         android:contentDescription="Settings"
-        app:layout_constraintStart_toEndOf="@id/btnQR"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout6"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnQR"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView

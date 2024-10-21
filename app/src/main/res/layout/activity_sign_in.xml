@@ -5,54 +5,22 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f2f3f4"
+    android:background="@drawable/blur"
     tools:context=".Activities.SignUp"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="-5dp">
-
-    <LinearLayout
-        android:textColor="@color/black"
-        android:id="@+id/linearLayout"
-        android:layout_width="500dp"
-        android:layout_height="200dp"
-        android:layout_marginBottom="550dp"
-        android:background="@drawable/rectangle"
-        android:orientation="vertical"
-        android:padding="5dp"
-        app:layout_constraintBottom_toBottomOf="@id/imageView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.875"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="500dp"
-        android:layout_height="150dp"
-        android:layout_marginBottom="10dp"
-        android:contentDescription="extrahud"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/hudbaroverlay" />
 
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="283dp"
         android:layout_height="149dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="16dp"
         android:contentDescription="Logo"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/iconvisible" />
+        app:srcCompat="@drawable/iconvisible2" />
 
 
     <TextView
@@ -63,7 +31,7 @@
         android:layout_marginBottom="0dp"
         android:fontFamily="@font/castoro"
         android:text="Sign Up"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="45sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/EtFirstname"
@@ -81,7 +49,6 @@
         android:ems="10"
         android:hint="First Name"
         android:inputType="textPersonName"
-        android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:background="@drawable/edit_text_border"
         android:padding="10dp"
@@ -174,7 +141,7 @@
         android:layout_width="250dp"
         android:layout_height="60dp"
         android:layout_marginBottom="30dp"
-        android:backgroundTint="#137b64"
+        android:backgroundTint="#C27B3C"
         android:fontFamily="@font/roboto_serif_semibold"
         android:text="Create Account"
         android:textSize="24sp"
@@ -188,11 +155,11 @@
         android:id="@+id/TvLogin"
         android:layout_width="250dp"
         android:layout_height="30dp"
-        android:layout_marginBottom="9dp"
         android:layout_marginTop="15dp"
+        android:layout_marginBottom="9dp"
         android:fontFamily="@font/anek_malayalam"
         android:text="Already have an account? Log in."
-        android:textColor="#0000FF"
+        android:textColor="#7777FF"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@id/btnSignUp"
         app:layout_constraintEnd_toEndOf="parent"

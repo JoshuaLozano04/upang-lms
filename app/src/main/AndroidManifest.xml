@@ -40,9 +40,6 @@
             android:name=".Activities.TermsAndCondition"
             android:exported="true" />
         <activity
-            android:name=".Activities.UpdateEmail"
-            android:exported="true" />
-        <activity
             android:name=".Activities.ChangePassword"
             android:exported="true" />
         <activity

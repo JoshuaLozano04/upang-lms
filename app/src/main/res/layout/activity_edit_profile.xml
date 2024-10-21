@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="#F6F6F6"
+    android:background="@drawable/blur"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.EditProfile">
@@ -12,7 +12,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="#137A63"
+        android:background="#C27B3C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -27,12 +27,13 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="133dp"
+            android:layout_width="314dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="Edit Profile"
             android:textColor="@color/white"
             android:textSize="25dp"
+            android:fontFamily="@font/open_sans_bold"
             tools:layout_editor_absoluteX="125dp"
             tools:layout_editor_absoluteY="38dp" />
 
@@ -40,24 +41,27 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="72dp"
-        android:layout_height="65dp"
+        android:layout_width="102dp"
+        android:layout_height="105dp"
         android:layout_marginTop="52dp"
+        app:layout_constraintBottom_toTopOf="@+id/editText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:srcCompat="@drawable/account_logo" />
+        app:srcCompat="@drawable/account_logo_white" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/edit_text_border"
         android:hint="First Name"
         android:padding="10dp"
         android:textColorHint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/editText2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,11 +71,12 @@
         android:id="@+id/editText2"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="370dp"
         android:background="@drawable/edit_text_border"
         android:hint="Last Name"
         android:padding="10dp"
         android:textColorHint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +84,7 @@
 
     <Button
         android:id="@+id/button"
-        android:backgroundTint="#137A63"
+        android:backgroundTint="#C27B3C"
         android:layout_width="241dp"
         android:layout_height="51dp"
         android:text="Save Changes"

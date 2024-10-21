@@ -29,6 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LoginPage extends AppCompatActivity {
     private EditText etEmail, etPassword;
     private Button btnLogin;
+    TextView btnforgot;
     TextView btnCreateNA;
 
     Retrofit.Builder builder = new Retrofit.Builder()
@@ -78,6 +79,17 @@ public class LoginPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginPage.this, SignUp.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btnforgot = findViewById(R.id.btnforgot);
+
+        btnforgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginPage.this, ForgotPassword.class);
                 startActivity(intent);
                 finish();
             }

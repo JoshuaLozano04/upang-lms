@@ -19,8 +19,8 @@
 
     <ImageButton
         android:id="@+id/btnBackQR"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="47dp"
+        android:layout_height="32dp"
         android:layout_marginBottom="90dp"
         android:background="@drawable/arrow"
         android:contentDescription="@string/backbtn"

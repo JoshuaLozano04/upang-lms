@@ -12,7 +12,7 @@
     <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="70sp"
         android:background="@drawable/rectangle"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,19 +24,20 @@
 
     <ImageButton
         android:id="@+id/btnBackAcc"
-        android:layout_width="44dp"
-        android:layout_height="30dp"
+        android:layout_width="47dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="222dp"
         android:background="@drawable/arrow"
         android:contentDescription="test"
-        android:foregroundGravity="left"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout6"
+        app:layout_constraintEnd_toStartOf="@id/btnQR"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout6" />
 
     <ImageButton
         android:id="@+id/btnQR"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@drawable/baseline_qr_code"
         android:contentDescription="ImageButton"
         app:layout_constraintStart_toEndOf="@id/btnBackAcc"
@@ -46,8 +47,8 @@
 
     <ImageButton
         android:id="@+id/btnCog"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@drawable/baseline_settings"
         android:contentDescription="Settings"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout6"

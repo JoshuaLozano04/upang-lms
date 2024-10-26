@@ -46,7 +46,6 @@ public class WebPage extends AppCompatActivity {
     private RecyclerView rv_bookdisplay;
     private RvBooksAdapter rvBooksAdapter;
     private ArrayList<BookList> bookLists;
-    private TextView category_all, category_horror, category_criminology;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,6 +126,7 @@ public class WebPage extends AppCompatActivity {
         TextView categoryAll = popupView.findViewById(R.id.category_all);
         TextView categoryHorror = popupView.findViewById(R.id.category_horror);
         TextView categoryCriminology = popupView.findViewById(R.id.category_criminology);
+        TextView categoryEngineering = popupView.findViewById(R.id.category_engineering);
 
         categoryAll.setOnClickListener(v -> {
             rvBooksAdapter.filterBooksByCategory("All");
@@ -140,6 +140,11 @@ public class WebPage extends AppCompatActivity {
 
         categoryCriminology.setOnClickListener(v -> {
             rvBooksAdapter.filterBooksByCategory("Criminology");
+            popupWindow.dismiss();
+        });
+
+        categoryEngineering.setOnClickListener(v -> {
+            rvBooksAdapter.filterBooksByCategory("Engineering");
             popupWindow.dismiss();
         });
 

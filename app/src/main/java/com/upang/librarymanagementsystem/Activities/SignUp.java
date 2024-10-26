@@ -1,6 +1,7 @@
 package com.upang.librarymanagementsystem.Activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -64,6 +65,14 @@ public class SignUp extends AppCompatActivity {
                 signUp();
             }
         });
+        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        String token = sharedPreferences.getString("auth_token", null);
+
+        if (token != null) {
+            Intent intent = new Intent(SignUp.this, WebPage.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     private void signUp() {

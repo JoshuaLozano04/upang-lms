@@ -5,15 +5,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="8dp"
     android:layout_margin="8dp"
-    android:background="@android:color/transparent"
     android:clickable="true"
     app:cardElevation="10dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#C27B3C"
         android:orientation="vertical"
-        android:background="@color/grayish_transparent"
         android:focusable="true">
         <ImageView
             android:id="@+id/iv_cover"
@@ -27,27 +26,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@android:color/transparent"
             android:layout_gravity="center">
             <TextView
                 android:id="@+id/book_title"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:text="Book Title"
                 android:gravity="center"
-                android:background="@android:color/transparent"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/book_author"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:gravity="center"
-                android:background="@android:color/transparent"
-                android:text="Book Author"
-                android:textColor="@color/black" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

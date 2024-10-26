@@ -1,5 +1,7 @@
 package com.upang.librarymanagementsystem.Api.Adapter;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -130,7 +132,6 @@ public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHold
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            author = itemView.findViewById(R.id.book_author);
             title = itemView.findViewById(R.id.book_title);
             cover = itemView.findViewById(R.id.iv_cover);
 
@@ -144,7 +145,7 @@ public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHold
                         int bookId = clickedBook.getId(); // Get the book ID
 
                         // Store the book ID in SharedPreferences
-                        SharedPreferences sharedPreferences = context.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE);
+                        SharedPreferences sharedPreferences = context.getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putInt("selected_book_id", bookId);
                         editor.apply();
@@ -159,17 +160,18 @@ public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHold
         }
         //Binds data to holder
         public void bind(BookList bookList){
-            author.setText(bookList.getAuthor());
             title.setText(bookList.getBookTitle());
-            String bookCoverPath = "https://decent-hardy-mastodon.ngrok-free.app" + bookList.getBookCover();
+            String bookCoverPath = "https://top-stable-octopus.ngrok-free.app" + bookList.getBookCover();
             fetchImage(bookCoverPath, cover);
         }
     }
     //Gets book image
     private void fetchImage(String imageUrl, ImageView imageView) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        String token = sharedPreferences.getString("auth_token", null);
         Request request = new Request.Builder()
                 .url(imageUrl)
-                .addHeader("Authorization", "Bearer " + getToken()) // Add your token here
+                .addHeader("Authorization", "Bearer " + token) // Add your token here
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -197,11 +199,6 @@ public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHold
                 }
             }
         });
-    }
-
-    private String getToken() {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE);
-        return sharedPreferences.getString("auth_token", null);
     }
 }
 

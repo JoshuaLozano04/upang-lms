@@ -89,23 +89,24 @@
                     <TextView
                         android:id="@+id/tvTitle"
                         android:layout_width="180dp"
-                        android:layout_height="35dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="40dp"
                         android:background="#FFFFFF"
                         android:gravity="center"
                         android:text="TITLE"
+                        android:textStyle="bold"
                         android:textAlignment="center"
                         android:textColor="@color/black" />
                     <TextView
                         android:id="@+id/tvAuthor"
                         android:layout_width="180dp"
-                        android:layout_height="35dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:background="#FFFFFF"
                         android:gravity="center"
                         android:text="AUTHOR"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/gray" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -147,6 +148,7 @@
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
                         android:maxLines="3"
+                        android:padding="5dp"
                         android:text="This is a sample description that will expand and collapse when you click Show More or Show Less."
                         android:textColor="@android:color/black"
                         android:textSize="16sp" />

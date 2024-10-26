@@ -1,6 +1,7 @@
 package com.upang.librarymanagementsystem.Activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -35,5 +36,15 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, SignUp.class);
             startActivity(intent);
         });
+
+        // Check if a token is already stored
+        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        String token = sharedPreferences.getString("auth_token", null);
+
+        if (token != null) {
+            Intent intent = new Intent(MainActivity.this, WebPage.class);
+            startActivity(intent);
+            finish();
+        }
     }
 }

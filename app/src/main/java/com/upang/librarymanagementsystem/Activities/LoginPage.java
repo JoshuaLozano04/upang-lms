@@ -33,7 +33,7 @@ public class LoginPage extends AppCompatActivity {
     TextView btnCreateNA;
 
     Retrofit.Builder builder = new Retrofit.Builder()
-            .baseUrl("https://decent-hardy-mastodon.ngrok-free.app/api/")
+            .baseUrl("https://top-stable-octopus.ngrok-free.app/api/")
             .addConverterFactory(GsonConverterFactory.create());
 
     Retrofit retrofit = builder.build();

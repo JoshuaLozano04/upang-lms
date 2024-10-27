@@ -72,7 +72,7 @@ public class Settings extends AppCompatActivity {
         btnChangePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Settings.this, ChangePassword.class);
+                Intent intent = new Intent(Settings.this, ForgotPassword.class);
                 startActivity(intent);
                 finish();
             }

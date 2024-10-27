@@ -23,16 +23,18 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ForgotPassword extends AppCompatActivity {
-    private UserClient userClient;
-    private EditText editText7;
-    protected void onCreate(Bundle savedInstanceState) {
-        ImageView btnForgotBack;
-        Button button5;
 
+public class TokenOTPPage extends AppCompatActivity {
+
+    private EditText EtEmail,EtPassword,Etpassword2,EtToken;
+    private UserClient userClient;
+    private Button button5;
+    ImageView btnForgotBack;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_forgot_password);
+        setContentView(R.layout.activity_token_otppage);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -44,42 +46,47 @@ public class ForgotPassword extends AppCompatActivity {
         btnForgotBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ForgotPassword.this, LoginPage.class);
+                Intent intent = new Intent(TokenOTPPage.this, ForgotPassword.class);
                 startActivity(intent);
                 finish();
             }
         });
-
-        userClient = RetrofitClient.getInstance(getApplicationContext()).getApi();
         button5 = findViewById(R.id.button5);
-        editText7 = findViewById(R.id.editText7);
-
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                forgotPassword();
+                resetPassword();
             }
         });
+        userClient = RetrofitClient.getInstance(getApplicationContext()).getApi();
+        EtEmail = findViewById(R.id.EtEmail);
+        EtToken = findViewById(R.id.EtToken);
+        EtPassword = findViewById(R.id.EtPassword);
+        Etpassword2 = findViewById(R.id.EtPassword2);
     }
-    private void forgotPassword(){
-        String email = editText7.getText().toString();
-        Call<ResponseBody> call = userClient.forgetPassword(email);
+    private void resetPassword(){
+        String email = EtEmail.getText().toString().trim();
+        String token = EtToken.getText().toString().trim();
+        String password = EtPassword.getText().toString().trim();
+        String confirmPassword = Etpassword2.getText().toString().trim();
+
+        Call<ResponseBody> call = userClient.resetPassword(email,token,password,confirmPassword);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful()){
-                    Toast.makeText(ForgotPassword.this, "Token sent to email", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(ForgotPassword.this,TokenOTPPage.class);
+                    Toast.makeText(TokenOTPPage.this, "Password changed successfully", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(TokenOTPPage.this, LoginPage.class);
                     startActivity(intent);
                     finish();
                 } else {
-                    Toast.makeText(ForgotPassword.this, "Failed to send token", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TokenOTPPage.this, "Failed to change password", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable throwable) {
-                Toast.makeText(ForgotPassword.this, "Error sending token", Toast.LENGTH_SHORT).show();
+                Toast.makeText(TokenOTPPage.this, "Error", Toast.LENGTH_SHORT).show();
             }
         });
     }

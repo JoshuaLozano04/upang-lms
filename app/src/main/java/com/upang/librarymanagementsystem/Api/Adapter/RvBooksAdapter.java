@@ -124,13 +124,12 @@ public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView author,title;
+        private TextView title;
         private ImageView cover;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            author = itemView.findViewById(R.id.book_author);
             title = itemView.findViewById(R.id.book_title);
             cover = itemView.findViewById(R.id.iv_cover);
 
@@ -159,9 +158,8 @@ public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHold
         }
         //Binds data to holder
         public void bind(BookList bookList){
-            author.setText(bookList.getAuthor());
             title.setText(bookList.getBookTitle());
-            String bookCoverPath = "https://decent-hardy-mastodon.ngrok-free.app/storage/" + bookList.getBookCover();
+            String bookCoverPath = "https://apparently-stunning-blowfish.ngrok-free.app/storage/" + bookList.getBookCover();
             fetchImage(bookCoverPath, cover);
         }
     }

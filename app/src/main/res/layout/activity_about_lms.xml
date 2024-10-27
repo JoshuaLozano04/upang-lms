@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="#F6F6F6"
-            android:padding="16dp"> <!-- Optional padding -->
+            android:layout_marginTop="5dp"> <!-- Optional padding -->
 
             <TextView
                 android:id="@+id/textView"

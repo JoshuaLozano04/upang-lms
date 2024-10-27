@@ -11,8 +11,8 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="70sp"
-        android:layout_marginBottom="820dp"
+        android:layout_height="115dp"
+        android:layout_marginBottom="850dp"
         android:background="#C27B3C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,21 +21,25 @@
 
         <ImageButton
             android:id="@+id/btnBackSetting"
-            android:layout_width="50dp"
-            android:layout_height="70dp"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="49dp"
+            android:layout_marginLeft="10dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/backbtn"
             android:src="@drawable/arrow_back_" />
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="310dp"
+            android:layout_width="150dp"
             android:layout_height="match_parent"
+            android:layout_marginTop="23dp"
+            android:layout_marginLeft="-15dp"
             android:gravity="center"
             android:text="Settings"
-            android:fontFamily="@font/open_sans_bold"
+            android:fontFamily="@font/assistant_extrabold"
             android:textColor="@color/white"
-            android:textSize="25sp"
+            android:textSize="27sp"
             tools:layout_editor_absoluteX="125dp"
             tools:layout_editor_absoluteY="38dp" />
     </LinearLayout>

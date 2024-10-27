@@ -12,6 +12,7 @@
         android:layout_width="300dp"
         android:layout_height="200dp"
         android:layout_marginBottom="27dp"
+        android:layout_marginLeft="15dp"
         android:background="@drawable/iconvisible2"
         app:layout_constraintBottom_toTopOf="@+id/tvLabel"
         app:layout_constraintEnd_toEndOf="parent"

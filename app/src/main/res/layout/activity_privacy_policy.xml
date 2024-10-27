@@ -31,11 +31,12 @@
 
         <TextView
             android:id="@+id/textView1"
-            android:layout_width="348dp"
+            android:layout_width="250dp"
             android:layout_height="50dp"
+            android:layout_marginLeft="100dp"
             android:background="@drawable/textview_left_format"
-            android:gravity="left"
-            android:paddingLeft="20dp"
+            android:gravity="center"
+            android:paddingRight="-50dp"
             android:paddingTop="6dp"
             android:text="Privacy Condition"
             android:textColor="@color/white"

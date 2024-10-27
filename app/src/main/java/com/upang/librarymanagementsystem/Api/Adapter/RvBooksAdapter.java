@@ -161,7 +161,7 @@ public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHold
         public void bind(BookList bookList){
             author.setText(bookList.getAuthor());
             title.setText(bookList.getBookTitle());
-            String bookCoverPath = "https://decent-hardy-mastodon.ngrok-free.app" + bookList.getBookCover();
+            String bookCoverPath = "https://decent-hardy-mastodon.ngrok-free.app/storage/" + bookList.getBookCover();
             fetchImage(bookCoverPath, cover);
         }
     }

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.TermsAndCondition">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginBottom="850dp"
+        android:background="@drawable/rectangle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.053">
+
+        <ImageButton
+            android:id="@+id/btnBackTerms"
+            android:layout_width="64dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:contentDescription=""
+            android:src="@drawable/arrow_back_" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:background="@drawable/rectangle"
+            android:layout_marginTop="25dp"
+            android:gravity="center"
+            android:text="Terms and Conditions"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            tools:layout_editor_absoluteX="125dp"
+            tools:layout_editor_absoluteY="38dp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"> <!-- Optional padding -->
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="304dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/textview_right_format"
+                android:gravity="left"
+                android:padding="20dp"
+                android:text="@string/toc"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="333dp"
+                android:layout_height="154dp"
+                android:layout_gravity="right"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/textview_left_format"
+                android:gravity="left"
+                android:padding="20dp"
+                android:text="@string/toc_1"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/textview_right_format"
+                android:gravity="left"
+                android:padding="20dp"
+                android:text="@string/toc_2"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/textview_left_format"
+                android:gravity="left"
+                android:padding="20dp"
+                android:text="@string/toc_3"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/textview_right_format"
+                android:gravity="left"
+                android:padding="20dp"
+                android:text="@string/toc_4"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/textview_left_format"
+                android:gravity="left"
+                android:padding="20dp"
+                android:text="@string/toc_5"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/textview_right_format"
+                android:gravity="left"
+                android:padding="20dp"
+                android:text="@string/toc_6"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/textview_left_format"
+                android:gravity="left"
+                android:padding="20dp"
+                android:text="@string/toc_7"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/textview_right_format"
+                android:gravity="left"
+                android:padding="20dp"
+                android:text="@string/toc_8"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/textview_left_format"
+                android:gravity="left"
+                android:padding="20dp"
+                android:text="@string/toc_9"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/textview_right_format"
+                android:gravity="left"
+                android:padding="20dp"
+                android:text="@string/toc_10"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/textview_left_format"
+                android:gravity="left"
+                android:padding="20dp"
+                android:text="@string/toc_11"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/textview_right_format"
+                android:gravity="left"
+                android:padding="20dp"
+                android:text="@string/toc_12"
+                android:textColor="@color/white" />
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="5dp" />
+        </LinearLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

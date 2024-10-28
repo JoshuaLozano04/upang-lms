@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blur"
+    tools:context=".Activities.WebPage">
+
+    <Button
+        android:id="@+id/Homebtn"
+        android:layout_width="40dp"
+        android:layout_height="41dp"
+        android:background="@drawable/home_icon"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toStartOf="@+id/searchView1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/AccountPage"
+        android:layout_width="35dp"
+        android:layout_height="36dp"
+        android:background="@drawable/user"
+        android:backgroundTint="#FFFFFF"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toStartOf="@+id/DropDown"
+        app:layout_constraintStart_toEndOf="@+id/searchView1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/DropDown"
+        android:layout_width="35dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="6dp"
+        android:background="@drawable/burger"
+        android:backgroundTint="#FFFFFF"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/AccountPage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SearchView
+        android:id="@+id/searchView1"
+        android:layout_width="250dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/searchbar"
+        android:iconifiedByDefault="false"
+        android:queryBackground="@drawable/searchbar"
+        android:queryHint="Search LMS"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="411dp"
+        android:layout_height="823dp"
+        android:layout_marginTop="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_bookdisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

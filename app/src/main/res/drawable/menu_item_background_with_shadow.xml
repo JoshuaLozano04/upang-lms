@@ -1,0 +1,17 @@
+<!-- res/drawable/menu_item_background_with_shadow.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <!-- Outer shadow -->
+        <shape android:shape="rectangle">
+            <corners android:radius="12dp"/>
+            <solid android:color="#40000000"/> <!-- Semi-transparent black for shadow -->
+        </shape>
+    </item>
+    <item android:left="2dp" android:right="2dp" android:top="2dp" android:bottom="2dp">
+        <!-- Main background -->
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF"/> <!-- White background -->
+            <corners android:radius="12dp"/>
+        </shape>
+    </item>
+</layer-list>

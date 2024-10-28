@@ -9,19 +9,21 @@
     tools:context=".Activities.LoginPage">
 
     <ImageView
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:layout_marginBottom="27dp"
-        android:layout_marginLeft="15dp"
-        android:background="@drawable/iconvisible2"
-        app:layout_constraintBottom_toTopOf="@+id/tvLabel"
+        android:id="@+id/imageView1"
+        android:layout_width="283dp"
+        android:layout_height="149dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="Logo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/iconvisible2" />
+
     <TextView
         android:id="@+id/tvLabel"
-        android:layout_width="181dp"
-        android:layout_height="82dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/castoro"
         android:text="Log in to your account"
         android:textAlignment="center"
@@ -36,9 +38,9 @@
 
     <TextView
         android:id="@+id/btnCreateNA"
-        android:layout_width="420dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="550dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="590dp"
         android:fontFamily="@font/anek_malayalam"
         android:text="Or create a new account"
         android:textAlignment="center"
@@ -93,14 +95,15 @@
 
     <TextView
         android:id="@+id/btnforgot"
-        android:layout_width="199dp"
-        android:layout_height="23dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/anek_malayalam"
         android:gravity="center"
         android:text="Forgot your password?"
         android:textColor="#5757FF"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:layout_marginStart="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

@@ -159,7 +159,7 @@ public class RvBooksAdapter extends RecyclerView.Adapter<RvBooksAdapter.ViewHold
         //Binds data to holder
         public void bind(BookList bookList){
             title.setText(bookList.getBookTitle());
-            String bookCoverPath = "https://apparently-stunning-blowfish.ngrok-free.app/storage/" + bookList.getBookCover();
+            String bookCoverPath = "http://192.168.18.138:8000/storage/" + bookList.getBookCover();
             fetchImage(bookCoverPath, cover);
         }
     }

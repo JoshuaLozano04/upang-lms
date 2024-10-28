@@ -33,7 +33,7 @@ public class LoginPage extends AppCompatActivity {
     TextView btnCreateNA;
 
     Retrofit.Builder builder = new Retrofit.Builder()
-            .baseUrl("https://top-stable-octopus.ngrok-free.app/api/")
+            .baseUrl("http://192.168.18.138:8000/api/")
             .addConverterFactory(GsonConverterFactory.create());
 
     Retrofit retrofit = builder.build();
@@ -117,14 +117,19 @@ public class LoginPage extends AppCompatActivity {
                     finish();
 
                 } else {
-                    Toast.makeText(LoginPage.this, "Error: Could not log in:" + response.message(), Toast.LENGTH_LONG).show();
+                    Log.d("LoginError", "Could not log in: " + response.message());
+                    Toast.makeText(LoginPage.this, "Error: Could not log in: " + response.message(), Toast.LENGTH_LONG).show();
                 }
+
             }
+
 
             @Override
             public void onFailure(Call<User> call, Throwable throwable) {
+                Log.d("LoginFailure", "Login request failed: " + throwable.getMessage());
                 Toast.makeText(LoginPage.this, "Error: " + throwable.getMessage(), Toast.LENGTH_LONG).show();
             }
+
         });
     }
 }

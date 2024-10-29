@@ -2,12 +2,10 @@ package com.upang.librarymanagementsystem.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -21,8 +19,6 @@ import com.upang.librarymanagementsystem.Api.Interfaces.UserClient;
 import com.upang.librarymanagementsystem.Api.Model.ProfileResponse;
 import com.upang.librarymanagementsystem.Api.Model.User;
 import com.upang.librarymanagementsystem.R;
-
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -47,7 +43,6 @@ public class AccountPage extends AppCompatActivity {
 
         Name = findViewById(R.id.tvName);
         Email = findViewById(R.id.tvEmail);
-        Id = findViewById(R.id.tvIDnum);
 
         btnBackAcc = findViewById(R.id.btnBackAcc);
 
@@ -104,7 +99,6 @@ public class AccountPage extends AppCompatActivity {
 
                             Name.setText(fullName);
                             Email.setText(user.getEmail());
-                            Id.setText(String.valueOf(user.getId()));
 
 
 

@@ -9,6 +9,7 @@
     tools:context=".Activities.AccountPage">
 
 
+
     <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
@@ -60,7 +61,7 @@
         android:id="@+id/imageView8"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="300dp"
         android:background="@drawable/account_logo_white"
         app:layout_constraintBottom_toTopOf="@+id/tvName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,6 +73,7 @@
         android:layout_width="350dp"
         android:layout_height="50sp"
         android:layout_marginTop="36dp"
+
         android:background="@drawable/rectangle"
         android:gravity="center"
         android:text="Name"
@@ -87,31 +89,16 @@
         android:id="@+id/tvEmail"
         android:layout_width="350dp"
         android:layout_height="50sp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/rectangle"
         android:gravity="center"
         android:text="Email"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/tvIDnum"
+        android:foregroundGravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
-    <TextView
-        android:id="@+id/tvIDnum"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="190dp"
-        android:gravity="center"
-        android:background="@drawable/rectangle"
-        android:text="ID Number"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
 </androidx.constraintlayout.widget.ConstraintLayout>

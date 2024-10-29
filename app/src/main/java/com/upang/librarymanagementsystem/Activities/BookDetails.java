@@ -22,6 +22,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.load.model.LazyHeaders;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.upang.librarymanagementsystem.Api.Client.RetrofitClient;
 import com.upang.librarymanagementsystem.Api.Interfaces.UserClient;
 import com.upang.librarymanagementsystem.Api.Model.BookDetailResponse;
@@ -68,6 +69,9 @@ public class BookDetails extends AppCompatActivity {
         tvStatus = findViewById(R.id.tvStatus);
         bookCover = findViewById(R.id.ivBookCover);
         btnBackWebpage = findViewById(R.id.btnBackWebpage);
+
+
+
 
         btnBackWebpage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,6 +163,7 @@ public class BookDetails extends AppCompatActivity {
                     runOnUiThread(() -> {
                         Glide.with(BookDetails.this)
                                 .load(imageData)
+                                .transform(new RoundedCorners(20))
                                 .into(bookCover);
                     });
                 } else {
@@ -167,6 +172,7 @@ public class BookDetails extends AppCompatActivity {
             }
         });
     }
+
 
     // Method to get the token
     private String getToken() {

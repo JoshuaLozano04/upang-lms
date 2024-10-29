@@ -39,12 +39,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class BookDetails extends AppCompatActivity {
-    private TextView tvTitle, tvAuthor, tvDescription, tvSubject, tvLocation, tvCopies, tvPublisher, tvStatus; // Add other TextViews as needed
+    private TextView tvTitle, tvAuthor, tvDescription, tvSubject, tvLocation, tvCopies, tvPublisher, tvStatus, tvShowMore; // Add tvShowMore here
     private ImageView bookCover; // For displaying the book cover
     private UserClient userClient;
     private ImageButton btnBackWebpage;
 
     private int bookId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,13 +55,12 @@ public class BookDetails extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-
-
-
         });
+
         tvTitle = findViewById(R.id.tvTitle);
         tvAuthor = findViewById(R.id.tvAuthor);
         tvDescription = findViewById(R.id.tvDescription);
+        tvShowMore = findViewById(R.id.tvShowMore); // Initialize tvShowMore
         tvSubject = findViewById(R.id.tvSubject);
         tvLocation = findViewById(R.id.tvLocation);
         tvCopies = findViewById(R.id.tvCopies);
@@ -68,6 +68,9 @@ public class BookDetails extends AppCompatActivity {
         tvStatus = findViewById(R.id.tvStatus);
         bookCover = findViewById(R.id.ivBookCover);
         btnBackWebpage = findViewById(R.id.btnBackWebpage);
+
+
+
 
         btnBackWebpage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,9 +82,9 @@ public class BookDetails extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.remove("selected_book_id");
                 editor.apply();
-
             }
         });
+
         userClient = RetrofitClient.getInstance(getApplicationContext()).getApi();
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
@@ -93,13 +96,30 @@ public class BookDetails extends AppCompatActivity {
             Toast.makeText(this, "No book selected", Toast.LENGTH_SHORT).show();
             finish(); // Close the activity if no book is selected
         }
+
+        // Set the initial visibility and click listener for expand/collapse
+        tvShowMore.setOnClickListener(new View.OnClickListener() {
+            private boolean isExpanded = false; // Track expansion state
+
+            @Override
+            public void onClick(View v) {
+                if (isExpanded) {
+                    tvDescription.setMaxLines(3); // Collapse to 3 lines
+                    tvShowMore.setText("Show More");
+                } else {
+                    tvDescription.setMaxLines(Integer.MAX_VALUE); // Expand fully
+                    tvShowMore.setText("Show Less");
+                }
+                isExpanded = !isExpanded; // Toggle the state
+            }
+        });
     }
 
     private void fetchBookDetails(int bookId) {
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
         String token = sharedPreferences.getString("auth_token", null);
 
-        if (token != null){
+        if (token != null) {
             Call<BookDetailResponse> call = userClient.getBookDetails(bookId, "Bearer " + token);
             call.enqueue(new Callback<BookDetailResponse>() {
                 @Override
@@ -117,10 +137,9 @@ public class BookDetails extends AppCompatActivity {
                     Log.d("FetchBookDetails", "Error: " + throwable.getMessage());
                 }
             });
-
         }
-
     }
+
     private OkHttpClient client = new OkHttpClient();
 
     private void fetchImage(String imageUrl) {
@@ -140,14 +159,13 @@ public class BookDetails extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     byte[] imageData = response.body().bytes();
 
-
                     runOnUiThread(() -> {
                         Glide.with(BookDetails.this)
                                 .load(imageData)
                                 .into(bookCover);
                     });
                 } else {
-
+                    Log.d("FetchImage", "Error fetching image: " + response.message());
                 }
             }
         });
@@ -177,8 +195,7 @@ public class BookDetails extends AppCompatActivity {
         } else {
             tvStatus.setText("Status not available");
         }
-        String bookCoverPath = " https://decent-hardy-mastodon.ngrok-free.app/storage/" + book.getBookCover();
+        String bookCoverPath = "http://192.168.2.15:8000/storage/" + book.getBookCover();
         fetchImage(bookCoverPath);
-
     }
 }

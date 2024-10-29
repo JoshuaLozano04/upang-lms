@@ -8,7 +8,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
-    private static final String BASE_URL = "https://decent-hardy-mastodon.ngrok-free.app/api/";
+    private static final String BASE_URL = "http://192.168.2.15:8000/api/";
     private static RetrofitClient mInstance;
     private final Retrofit retrofit;
 

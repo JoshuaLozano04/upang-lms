@@ -33,7 +33,7 @@ public class LoginPage extends AppCompatActivity {
     TextView btnCreateNA;
 
     Retrofit.Builder builder = new Retrofit.Builder()
-            .baseUrl("http://192.168.18.138:8000/api/")
+            .baseUrl("http://192.168.2.15:8000/api/")
             .addConverterFactory(GsonConverterFactory.create());
 
     Retrofit retrofit = builder.build();

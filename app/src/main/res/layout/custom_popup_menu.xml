@@ -27,22 +27,22 @@
         android:layout_marginBottom="8dp"/>
 
     <TextView
-        android:id="@+id/category_horror"
+        android:id="@+id/category_HOSPITALITY"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/menu_item_background_with_shadow"
         android:padding="8dp"
-        android:text="Horror"
+        android:text="HOSPITALITY"
         android:textColor="#000000"
         android:layout_marginBottom="8dp"/>
 
     <TextView
-        android:id="@+id/category_criminology"
+        android:id="@+id/category_CRIMINOLOGY"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/menu_item_background_with_shadow"
         android:padding="8dp"
-        android:text="Criminology"
+        android:text="CRIMINOLOGY"
         android:textColor="#000000"
         android:layout_marginBottom="8dp"/>
 
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/menu_item_background_with_shadow"
         android:padding="8dp"
-        android:text="Engineering"
+        android:text="ENGINEERING"
         android:textColor="#000000"
         android:layout_marginBottom="8dp"/>
 </LinearLayout>

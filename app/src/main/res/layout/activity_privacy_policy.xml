@@ -11,15 +11,15 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="850dp"
-        android:background="@color/white"
+        android:layout_height="100dp"
+        android:layout_marginBottom="1000dp"
+        android:background="@drawable/rectangle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.057">
+        app:layout_constraintVertical_bias="0.053">
 
         <ImageButton
             android:id="@+id/btnBackPrivacy"
@@ -27,22 +27,18 @@
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
             android:contentDescription=""
-            android:src="@drawable/arrow_back_black" />
+            android:src="@drawable/arrow_back_" />
 
         <TextView
             android:id="@+id/textView1"
-            android:layout_width="250dp"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginLeft="100dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/textview_left_format"
             android:gravity="center"
-            android:paddingRight="-50dp"
-            android:paddingTop="6dp"
             android:text="Privacy Condition"
             android:textColor="@color/white"
-            android:textSize="25dp"
-            tools:layout_editor_absoluteX="125dp"
-            tools:layout_editor_absoluteY="38dp" />
+            android:textSize="25dp" />
 
     </LinearLayout>
 

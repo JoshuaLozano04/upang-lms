@@ -9,9 +9,13 @@
         android:id="@+id/category_all"
         android:title="All" />
     <item
-        android:id="@+id/category_horror"
-        android:title="Horror" />
+        android:id="@+id/category_HOSPITALITY"
+        android:title="hospitality" />
     <item
-        android:id="@+id/category_criminology"
+        android:id="@+id/category_CRIMINOLOGY"
         android:title="Criminology" />
+
+    <item
+        android:id="@+id/category_ENGINEERING"
+        android:title="ENGINEERING" />
 </menu>

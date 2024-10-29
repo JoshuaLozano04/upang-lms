@@ -62,8 +62,9 @@ public class WebPage extends AppCompatActivity {
         categoryButton = findViewById(R.id.DropDown);
 
         categories.add("All");
-        categories.add("Horror");
+        categories.add("HOSPITALITY & TOURISM");
         categories.add("Criminology");
+        categories.add("ENGINEERING");
 
         categoryButton.setOnClickListener(view -> showPopupMenu(view));
 
@@ -124,8 +125,8 @@ public class WebPage extends AppCompatActivity {
 
         // Set up click listeners for each category
         TextView categoryAll = popupView.findViewById(R.id.category_all);
-        TextView categoryHorror = popupView.findViewById(R.id.category_horror);
-        TextView categoryCriminology = popupView.findViewById(R.id.category_criminology);
+        TextView categoryHOSPITALITY = popupView.findViewById(R.id.category_HOSPITALITY);
+        TextView categoryCriminology = popupView.findViewById(R.id.category_CRIMINOLOGY);
         TextView categoryEngineering = popupView.findViewById(R.id.category_engineering);
 
         categoryAll.setOnClickListener(v -> {
@@ -133,18 +134,18 @@ public class WebPage extends AppCompatActivity {
             popupWindow.dismiss();
         });
 
-        categoryHorror.setOnClickListener(v -> {
-            rvBooksAdapter.filterBooksByCategory("Horror");
+        categoryHOSPITALITY.setOnClickListener(v -> {
+            rvBooksAdapter.filterBooksByCategory("hospitatlity");
             popupWindow.dismiss();
         });
 
         categoryCriminology.setOnClickListener(v -> {
-            rvBooksAdapter.filterBooksByCategory("Criminology");
+            rvBooksAdapter.filterBooksByCategory("CRIMINOLOGY");
             popupWindow.dismiss();
         });
 
         categoryEngineering.setOnClickListener(v -> {
-            rvBooksAdapter.filterBooksByCategory("Engineering");
+            rvBooksAdapter.filterBooksByCategory("ENGINEERING");
             popupWindow.dismiss();
         });
 
